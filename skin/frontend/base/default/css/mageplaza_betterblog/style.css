@@ -1,0 +1,148 @@
+/**
+ * Mageplaza_BetterBlog extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category       Mageplaza
+ * @package        Mageplaza_BetterBlog
+ * @copyright      Copyright (c) 2015
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+.tree,.tree ul,.tree li{list-style:none;margin:0;padding:0;}
+.tree{background:url(../../images/mageplaza_betterblog/line1.png) repeat-y;}
+.tree li{line-height:20px;margin-top:1px;position:relative;width:100%;}
+* html .tree li{float:left;display:inline;}
+.tree li a{padding-left:28px;}
+.tree li span{cursor:auto;float:left;font-size:0;height:13px;left:5px;position:absolute;top:5px;width:13px;}
+.tree li span,.tree li span.collapsed{background:url(../../images/mageplaza_betterblog/collapsed.png) no-repeat 0 0;}
+.tree li span.expanded{background:url(../../images/mageplaza_betterblog/expanded.png) no-repeat 0 0;}
+.tree li ul{margin-left:28px;background:url(../../images/mageplaza_betterblog/line1.png) repeat-y;}
+.tree li li{background:url(../../images/mageplaza_betterblog/line2.png) no-repeat 0 0;}
+.tree:after,.tree ul:after{clear:both;content:".";display:block;height:0;visibility:hidden;}
+.tree,.tree ul{display:block;}
+.tree li.map-category{font-weight:bold;}
+.tree li.map-product{font-weight:normal;}
+.tree li.map-product a{color:#203548;}
+/* \*/ .tree,.tree ul{min-height:1%;}
+* html .tree,* html .tree ul{height:1%;}
+
+.mp-copyright .mp-logo{ background:url("//cdn.mageplaza.com/images/mageplaza-100.jpg") no-repeat ; } .mp-copyright .mp-store{ display: none !important; color: #E8E8E8 !important; font-size: 8px !important; text-transform: inherit; float: right; } .mp-copyright .mp-ft{ visibility:hidden !important; display: none !important; width: 20px; }
+
+.post-image{
+    width: 100%;
+}
+.post-image img{
+    display: block;
+    overflow: hidden;
+    width: 100%;
+}
+
+.post-sharing-button{
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+.post-read-more a{
+    font-size: 14px !important;
+    float: right;
+}
+
+.post-list-item .post-image{
+	width: 100% !important;
+    margin-bottom: 30px;
+}
+
+.post-list-container, .mageplaza-betterblog-category-view .col-main{
+    min-height: 400px;
+}
+.post-list-container .post-short-description p {
+    margin-top: 0;
+    margin-bottom: 20px;
+    width: 100% !important;
+}
+
+.mc-meta-info {
+    clear: both;
+    overflow: hidden;
+    margin-top: 20px;
+    padding: 5px 0;
+    border-top: 1px solid #e7e6e6;
+    border-bottom: 1px solid #e7e6e6;
+    font-size: 12px;
+}
+
+.mc-alignright {
+    display: inline;
+    float: right;
+    margin-left: 15px;
+}
+
+.mc-read-more, .more a{
+    position: relative;
+    margin-right: 10px;
+    text-align: right;
+    font-size: 14px !important;
+}
+
+.mc-post-title{
+    font-size: 18px;
+    line-height: 27px;
+    text-transform: inherit;
+}
+
+.mc-clearfix {
+    clear: both;
+    zoom: 1;
+}
+
+.post-short-description{
+	width: 100% !important;
+}
+
+.tags-list-container a{
+    margin-left: 10px;
+    padding: 5px;
+}
+.betterblog-rss{
+    float:right;
+    margin: 10px 0 10px 0;
+}
+
+.post-post_content{
+    margin: 10px 0 10px 0;
+}
+.mp-footer, .mp-footer h3{
+    margin-top: 50px;
+    font-size: 8px !important;
+    display: block;
+    clear: both;
+    float: right;
+    text-transform: inherit;
+}
+.mp-footer-links-light,.mp-footer-links-light h3,.mp-footer-links-light a,.mp-footer-links-light a:hover, .mp-footer-links-light a:visited{
+    color: #E8E8E8 !important;
+}
+
+.mp-footer-links-dark, .mp-footer-links-dark h3,.mp-footer-links-dark a,.mp-footer-links-dark a:hover, .mp-footer-links-dark a:visited{
+
+    color: #D2D2D2 !important;
+}
+
+.mc-post-info{
+    color: #999999;
+    font-size: 10px;
+    line-height: 18px;
+    padding: 0 0 10px 0;
+}
+.post-list {
+    margin: 20px 0 20px 0;
+}
+.post-list ul{
+    list-style-type: disc;
+    margin-left: 20px;
+}

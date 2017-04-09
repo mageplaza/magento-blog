@@ -1,0 +1,33 @@
+<?php
+/**
+ * How to call in CMS page
+ * {{block type='mageplaza_betterblog/post_recent'  post_count="1" block_name="Latest from the blog" template='mageplaza_betterblog/post/recent.phtml'}}
+ * {{block type='mageplaza_betterblog/post_cat'  post_count="1" category_id="4" block_name="Latest news" template='mageplaza_betterblog/post/recent.phtml'}}
+ */
+?>
+
+
+<?php $posts = $this->getPosts(); ?>
+<?php $postCount = $this->getPostCount(); ?>
+<?php $i = 0; ?>
+
+
+    <h2><?php echo $this->getBlockName(); ?></h2>
+<?php foreach ($posts as $post): ?>
+    <?php if ($i >= $postCount) break; ?>
+
+    <div class="post-image">
+        <?php if ($post->getImage()) : ?>
+            <img src="<?php echo Mage::helper('mageplaza_betterblog/post_image')->init($post, 'image'); ?>"
+                 alt="<?php echo $this->escapeHtml($post->getPostTitle()); ?>"/>
+        <?php endif; ?>
+    </div>
+
+    <div class="post-list-item">
+        <h4><a href="<?php echo $post->getPostUrl(); ?>"><?php echo $post->getPostTitle(); ?></a></h4>
+    </div>
+    <div class="post-short-description">
+        <p><?php echo $post->getPostExcerpt(); ?></p>
+    </div>
+    <?php $i++; ?>
+<?php endforeach; ?>

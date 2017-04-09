@@ -1,0 +1,1766 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:typens="urn:{{var wsdl.name}}"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+     xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+     xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+     name="{{var wsdl.name}}"
+     targetNamespace="urn:{{var wsdl.name}}">
+    <wsdl:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:{{var wsdl.name}}">
+            <xsd:complexType name="betterblogPostEntityArray">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="unbounded" name="complexObjectArray" type="typens:betterblogPostEntity" />
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="betterblogPostEntity">
+                <xsd:sequence>
+                    <xsd:element name="entity_id" type="xsd:string" />
+                    <xsd:element name="post_title" type="xsd:string" />
+                    <xsd:element name="post_excerpt" type="xsd:string" />
+                    <xsd:element name="post_content" type="xsd:string" />
+                    <xsd:element name="image" type="xsd:string" />
+                    <xsd:element name="status" type="xsd:string" />
+                    <xsd:element name="url_key" type="xsd:string" />
+                    <xsd:element name="in_rss" type="xsd:string" />
+                    <xsd:element name="meta_title" type="xsd:string" />
+                    <xsd:element name="meta_keywords" type="xsd:string" />
+                    <xsd:element name="meta_description" type="xsd:string" />
+                    <xsd:element name="allow_comment" type="xsd:string" />
+                    <xsd:element name="additional_attributes" type="typens:associativeArray" minOccurs="0" />
+
+                    <xsd:element name="created_at" type="xsd:string" />
+                    <xsd:element name="updated_at" type="xsd:string" />
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="betterblogPostAddEntity">
+                <xsd:sequence>
+                    <xsd:element name="post_title" type="xsd:string" />
+                    <xsd:element name="post_excerpt" type="xsd:string" />
+                    <xsd:element name="post_content" type="xsd:string" />
+                    <xsd:element name="image" type="xsd:string" />
+                    <xsd:element name="status" type="xsd:string" />
+                    <xsd:element name="url_key" type="xsd:string" />
+                    <xsd:element name="in_rss" type="xsd:string" />
+                    <xsd:element name="meta_title" type="xsd:string" />
+                    <xsd:element name="meta_keywords" type="xsd:string" />
+                    <xsd:element name="meta_description" type="xsd:string" />
+                    <xsd:element name="allow_comment" type="xsd:string" />
+                    <xsd:element name="additional_attributes" type="typens:associativeArray" minOccurs="0" />
+
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="betterblogPostUpdateEntity">
+                <xsd:sequence>
+                    <xsd:element name="post_title" type="xsd:string" />
+                    <xsd:element name="post_excerpt" type="xsd:string" />
+                    <xsd:element name="post_content" type="xsd:string" />
+                    <xsd:element name="image" type="xsd:string" />
+                    <xsd:element name="status" type="xsd:string" />
+                    <xsd:element name="url_key" type="xsd:string" />
+                    <xsd:element name="in_rss" type="xsd:string" />
+                    <xsd:element name="meta_title" type="xsd:string" />
+                    <xsd:element name="meta_keywords" type="xsd:string" />
+                    <xsd:element name="meta_description" type="xsd:string" />
+                    <xsd:element name="allow_comment" type="xsd:string" />
+                    <xsd:element name="additional_attributes" type="typens:associativeArray" minOccurs="0" />
+
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="betterblogPostInfoEntity">
+                <xsd:sequence>
+                    <xsd:element name="entity_id" type="xsd:string" />
+                    <xsd:element name="post_title" type="xsd:string" />
+                    <xsd:element name="post_excerpt" type="xsd:string" />
+                    <xsd:element name="post_content" type="xsd:string" />
+                    <xsd:element name="image" type="xsd:string" />
+                    <xsd:element name="status" type="xsd:string" />
+                    <xsd:element name="url_key" type="xsd:string" />
+                    <xsd:element name="in_rss" type="xsd:string" />
+                    <xsd:element name="meta_title" type="xsd:string" />
+                    <xsd:element name="meta_keywords" type="xsd:string" />
+                    <xsd:element name="meta_description" type="xsd:string" />
+                    <xsd:element name="allow_comment" type="xsd:string" />
+                    <xsd:element name="additional_attributes" type="typens:associativeArray" minOccurs="0" />
+
+                    <xsd:element name="created_at" type="xsd:string" />
+                    <xsd:element name="updated_at" type="xsd:string" />
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="betterblogPostAssignCategoryEntity">
+                <xsd:sequence>
+                <xsd:element name="postId" type="xsd:string" />
+                <xsd:element name="categoryId" type="xsd:string" />
+                <xsd:element name="position" type="xsd:string" />
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="betterblogPostUnassignCategoryEntity">
+                <xsd:sequence>
+                <xsd:element name="postId" type="xsd:string" />
+                <xsd:element name="categoryId" type="xsd:string" />
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="betterblogPostAssignTagEntity">
+                <xsd:sequence>
+                <xsd:element name="postId" type="xsd:string" />
+                <xsd:element name="tagId" type="xsd:string" />
+                <xsd:element name="position" type="xsd:string" />
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="betterblogPostUnassignTagEntity">
+                <xsd:sequence>
+                <xsd:element name="postId" type="xsd:string" />
+                <xsd:element name="tagId" type="xsd:string" />
+                </xsd:sequence>
+            </xsd:complexType>
+        
+            <xsd:element name="betterblogPostListRequestParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+                        <xsd:element minOccurs="0" maxOccurs="1" name="filters" type="typens:filters" />
+                    </xsd:sequence>
+                 </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="betterblogPostListResponseParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="0" maxOccurs="1" name="result" type="typens:betterblogPostEntityArray" />
+                    </xsd:sequence>
+                 </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="betterblogPostInfoRequestParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+                        <xsd:element minOccurs="1" maxOccurs="1" name="postId" type="xsd:string" />
+                    </xsd:sequence>
+                 </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="betterblogPostInfoResponseParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="result" type="typens:betterblogPostInfoEntity" />
+                    </xsd:sequence>
+                 </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="betterblogPostAddRequestParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+                        <xsd:element minOccurs="1" maxOccurs="1" name="data" type="typens:betterblogPostAddEntity" />
+                    </xsd:sequence>
+                 </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="betterblogPostAddResponseParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:int" />
+                    </xsd:sequence>
+                 </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="betterblogPostUpdateRequestParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+                        <xsd:element minOccurs="1" maxOccurs="1" name="postId" type="xsd:string" />
+                        <xsd:element minOccurs="1" maxOccurs="1" name="data" type="typens:betterblogPostUpdateEntity" />
+                    </xsd:sequence>
+                 </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="betterblogPostUpdateResponseParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:boolean" />
+                    </xsd:sequence>
+                 </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="betterblogPostRemoveRequestParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                    <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+                        <xsd:element minOccurs="1" maxOccurs="1" name="postId" type="xsd:string" />
+                    </xsd:sequence>
+                 </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="betterblogPostRemoveResponseParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:boolean" />
+                    </xsd:sequence>
+                 </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="betterblogPostAssignCategoryRequestParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+                        <xsd:element minOccurs="1" maxOccurs="1" name="postId" type="xsd:string" />
+                        <xsd:element minOccurs="1" maxOccurs="1" name="categoryId" type="xsd:string" />
+                        <xsd:element minOccurs="0" maxOccurs="1" name="position" type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="betterblogPostAssignCategoryResponseParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:boolean" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="betterblogPostUnassignCategoryRequestParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+                        <xsd:element minOccurs="1" maxOccurs="1" name="postId" type="xsd:string" />
+                        <xsd:element minOccurs="1" maxOccurs="1" name="categoryId" type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="betterblogPostUnassignCategoryResponseParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:boolean" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="betterblogPostAssignTagRequestParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+                        <xsd:element minOccurs="1" maxOccurs="1" name="postId" type="xsd:string" />
+                        <xsd:element minOccurs="1" maxOccurs="1" name="tagId" type="xsd:string" />
+                        <xsd:element minOccurs="0" maxOccurs="1" name="position" type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="betterblogPostAssignTagResponseParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:boolean" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="betterblogPostUnassignTagRequestParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+                        <xsd:element minOccurs="1" maxOccurs="1" name="postId" type="xsd:string" />
+                        <xsd:element minOccurs="1" maxOccurs="1" name="tagId" type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="betterblogPostUnassignTagResponseParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:boolean" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+                    <xsd:complexType name="betterblogCategoryEntityArray">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="unbounded" name="complexObjectArray" type="typens:betterblogCategoryEntity" />
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="betterblogCategoryEntity">
+                <xsd:sequence>
+                    <xsd:element name="entity_id" type="xsd:string" />
+                    <xsd:element name="name" type="xsd:string" />
+                    <xsd:element name="description" type="xsd:string" />
+                    <xsd:element name="status" type="xsd:string" />
+                    <xsd:element name="url_key" type="xsd:string" />
+                    <xsd:element name="parent_id" type="xsd:string" />
+                    <xsd:element name="path" type="xsd:string" />
+                    <xsd:element name="position" type="xsd:string" />
+                    <xsd:element name="level" type="xsd:string" />
+                    <xsd:element name="children_count" type="xsd:string" />
+                    <xsd:element name="in_rss" type="xsd:string" />
+                    <xsd:element name="meta_title" type="xsd:string" />
+                    <xsd:element name="meta_keywords" type="xsd:string" />
+                    <xsd:element name="meta_description" type="xsd:string" />
+
+                    <xsd:element name="created_at" type="xsd:string" />
+                    <xsd:element name="updated_at" type="xsd:string" />
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="betterblogCategoryAddEntity">
+                <xsd:sequence>
+                    <xsd:element name="name" type="xsd:string" />
+                    <xsd:element name="description" type="xsd:string" />
+                    <xsd:element name="status" type="xsd:string" />
+                    <xsd:element name="url_key" type="xsd:string" />
+                    <xsd:element name="parent_id" type="xsd:string" />
+                    <xsd:element name="in_rss" type="xsd:string" />
+                    <xsd:element name="meta_title" type="xsd:string" />
+                    <xsd:element name="meta_keywords" type="xsd:string" />
+                    <xsd:element name="meta_description" type="xsd:string" />
+
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="betterblogCategoryUpdateEntity">
+                <xsd:sequence>
+                    <xsd:element name="name" type="xsd:string" />
+                    <xsd:element name="description" type="xsd:string" />
+                    <xsd:element name="status" type="xsd:string" />
+                    <xsd:element name="url_key" type="xsd:string" />
+                    <xsd:element name="parent_id" type="xsd:string" />
+                    <xsd:element name="in_rss" type="xsd:string" />
+                    <xsd:element name="meta_title" type="xsd:string" />
+                    <xsd:element name="meta_keywords" type="xsd:string" />
+                    <xsd:element name="meta_description" type="xsd:string" />
+
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="betterblogCategoryInfoEntity">
+                <xsd:sequence>
+                    <xsd:element name="entity_id" type="xsd:string" />
+                    <xsd:element name="name" type="xsd:string" />
+                    <xsd:element name="description" type="xsd:string" />
+                    <xsd:element name="status" type="xsd:string" />
+                    <xsd:element name="url_key" type="xsd:string" />
+                    <xsd:element name="parent_id" type="xsd:string" />
+                    <xsd:element name="path" type="xsd:string" />
+                    <xsd:element name="position" type="xsd:string" />
+                    <xsd:element name="level" type="xsd:string" />
+                    <xsd:element name="children_count" type="xsd:string" />
+                    <xsd:element name="in_rss" type="xsd:string" />
+                    <xsd:element name="meta_title" type="xsd:string" />
+                    <xsd:element name="meta_keywords" type="xsd:string" />
+                    <xsd:element name="meta_description" type="xsd:string" />
+
+                    <xsd:element name="created_at" type="xsd:string" />
+                    <xsd:element name="updated_at" type="xsd:string" />
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="betterblogCategoryMoveEntity">
+                <xsd:sequence>
+                <xsd:element name="category_id" type="xsd:string" />
+                <xsd:element name="parent_id" type="xsd:string" />
+                <xsd:element name="after_id" type="xsd:string" />
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="betterblogCategoryAssignPostEntity">
+                <xsd:sequence>
+                <xsd:element name="categoryId" type="xsd:string" />
+                <xsd:element name="postId" type="xsd:string" />
+                <xsd:element name="position" type="xsd:string" />
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="betterblogCategoryUnassignPostEntity">
+                <xsd:sequence>
+                <xsd:element name="categoryId" type="xsd:string" />
+                <xsd:element name="postId" type="xsd:string" />
+                </xsd:sequence>
+            </xsd:complexType>
+        
+            <xsd:element name="betterblogCategoryListRequestParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+                        <xsd:element minOccurs="0" maxOccurs="1" name="filters" type="typens:filters" />
+                    </xsd:sequence>
+                 </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="betterblogCategoryListResponseParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="0" maxOccurs="1" name="result" type="typens:betterblogCategoryEntityArray" />
+                    </xsd:sequence>
+                 </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="betterblogCategoryInfoRequestParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+                        <xsd:element minOccurs="1" maxOccurs="1" name="categoryId" type="xsd:string" />
+                    </xsd:sequence>
+                 </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="betterblogCategoryInfoResponseParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="result" type="typens:betterblogCategoryInfoEntity" />
+                    </xsd:sequence>
+                 </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="betterblogCategoryAddRequestParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+                        <xsd:element minOccurs="1" maxOccurs="1" name="data" type="typens:betterblogCategoryAddEntity" />
+                    </xsd:sequence>
+                 </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="betterblogCategoryAddResponseParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:int" />
+                    </xsd:sequence>
+                 </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="betterblogCategoryUpdateRequestParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+                        <xsd:element minOccurs="1" maxOccurs="1" name="categoryId" type="xsd:string" />
+                        <xsd:element minOccurs="1" maxOccurs="1" name="data" type="typens:betterblogCategoryUpdateEntity" />
+                    </xsd:sequence>
+                 </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="betterblogCategoryUpdateResponseParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:boolean" />
+                    </xsd:sequence>
+                 </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="betterblogCategoryRemoveRequestParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                    <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+                        <xsd:element minOccurs="1" maxOccurs="1" name="categoryId" type="xsd:string" />
+                    </xsd:sequence>
+                 </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="betterblogCategoryRemoveResponseParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:boolean" />
+                    </xsd:sequence>
+                 </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="betterblogCategoryMoveRequestParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="session_id" type="xsd:string" />
+                        <xsd:element minOccurs="1" maxOccurs="1" name="categoryId" type="xsd:string" />
+                        <xsd:element minOccurs="1" maxOccurs="1" name="parentId" type="xsd:string" />
+                        <xsd:element minOccurs="0" maxOccurs="1" name="afterId" type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="betterblogCategoryAssignProductResponseParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:boolean" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="betterblogCategoryAssignPostRequestParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+                        <xsd:element minOccurs="1" maxOccurs="1" name="categoryId" type="xsd:string" />
+                        <xsd:element minOccurs="1" maxOccurs="1" name="postId" type="xsd:string" />
+                        <xsd:element minOccurs="0" maxOccurs="1" name="position" type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="betterblogCategoryAssignPostResponseParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:boolean" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="betterblogCategoryUnassignPostRequestParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+                        <xsd:element minOccurs="1" maxOccurs="1" name="categoryId" type="xsd:string" />
+                        <xsd:element minOccurs="1" maxOccurs="1" name="postId" type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="betterblogCategoryUnassignPostResponseParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:boolean" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+                    <xsd:complexType name="betterblogTagEntityArray">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="unbounded" name="complexObjectArray" type="typens:betterblogTagEntity" />
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="betterblogTagEntity">
+                <xsd:sequence>
+                    <xsd:element name="entity_id" type="xsd:string" />
+                    <xsd:element name="name" type="xsd:string" />
+                    <xsd:element name="description" type="xsd:string" />
+                    <xsd:element name="status" type="xsd:string" />
+                    <xsd:element name="url_key" type="xsd:string" />
+                    <xsd:element name="in_rss" type="xsd:string" />
+                    <xsd:element name="meta_title" type="xsd:string" />
+                    <xsd:element name="meta_keywords" type="xsd:string" />
+                    <xsd:element name="meta_description" type="xsd:string" />
+
+                    <xsd:element name="created_at" type="xsd:string" />
+                    <xsd:element name="updated_at" type="xsd:string" />
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="betterblogTagAddEntity">
+                <xsd:sequence>
+                    <xsd:element name="name" type="xsd:string" />
+                    <xsd:element name="description" type="xsd:string" />
+                    <xsd:element name="status" type="xsd:string" />
+                    <xsd:element name="url_key" type="xsd:string" />
+                    <xsd:element name="in_rss" type="xsd:string" />
+                    <xsd:element name="meta_title" type="xsd:string" />
+                    <xsd:element name="meta_keywords" type="xsd:string" />
+                    <xsd:element name="meta_description" type="xsd:string" />
+
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="betterblogTagUpdateEntity">
+                <xsd:sequence>
+                    <xsd:element name="name" type="xsd:string" />
+                    <xsd:element name="description" type="xsd:string" />
+                    <xsd:element name="status" type="xsd:string" />
+                    <xsd:element name="url_key" type="xsd:string" />
+                    <xsd:element name="in_rss" type="xsd:string" />
+                    <xsd:element name="meta_title" type="xsd:string" />
+                    <xsd:element name="meta_keywords" type="xsd:string" />
+                    <xsd:element name="meta_description" type="xsd:string" />
+
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="betterblogTagInfoEntity">
+                <xsd:sequence>
+                    <xsd:element name="entity_id" type="xsd:string" />
+                    <xsd:element name="name" type="xsd:string" />
+                    <xsd:element name="description" type="xsd:string" />
+                    <xsd:element name="status" type="xsd:string" />
+                    <xsd:element name="url_key" type="xsd:string" />
+                    <xsd:element name="in_rss" type="xsd:string" />
+                    <xsd:element name="meta_title" type="xsd:string" />
+                    <xsd:element name="meta_keywords" type="xsd:string" />
+                    <xsd:element name="meta_description" type="xsd:string" />
+
+                    <xsd:element name="created_at" type="xsd:string" />
+                    <xsd:element name="updated_at" type="xsd:string" />
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="betterblogTagAssignPostEntity">
+                <xsd:sequence>
+                <xsd:element name="tagId" type="xsd:string" />
+                <xsd:element name="postId" type="xsd:string" />
+                <xsd:element name="position" type="xsd:string" />
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="betterblogTagUnassignPostEntity">
+                <xsd:sequence>
+                <xsd:element name="tagId" type="xsd:string" />
+                <xsd:element name="postId" type="xsd:string" />
+                </xsd:sequence>
+            </xsd:complexType>
+        
+            <xsd:element name="betterblogTagListRequestParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+                        <xsd:element minOccurs="0" maxOccurs="1" name="filters" type="typens:filters" />
+                    </xsd:sequence>
+                 </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="betterblogTagListResponseParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="0" maxOccurs="1" name="result" type="typens:betterblogTagEntityArray" />
+                    </xsd:sequence>
+                 </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="betterblogTagInfoRequestParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+                        <xsd:element minOccurs="1" maxOccurs="1" name="tagId" type="xsd:string" />
+                    </xsd:sequence>
+                 </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="betterblogTagInfoResponseParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="result" type="typens:betterblogTagInfoEntity" />
+                    </xsd:sequence>
+                 </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="betterblogTagAddRequestParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+                        <xsd:element minOccurs="1" maxOccurs="1" name="data" type="typens:betterblogTagAddEntity" />
+                    </xsd:sequence>
+                 </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="betterblogTagAddResponseParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:int" />
+                    </xsd:sequence>
+                 </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="betterblogTagUpdateRequestParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+                        <xsd:element minOccurs="1" maxOccurs="1" name="tagId" type="xsd:string" />
+                        <xsd:element minOccurs="1" maxOccurs="1" name="data" type="typens:betterblogTagUpdateEntity" />
+                    </xsd:sequence>
+                 </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="betterblogTagUpdateResponseParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:boolean" />
+                    </xsd:sequence>
+                 </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="betterblogTagRemoveRequestParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                    <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+                        <xsd:element minOccurs="1" maxOccurs="1" name="tagId" type="xsd:string" />
+                    </xsd:sequence>
+                 </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="betterblogTagRemoveResponseParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:boolean" />
+                    </xsd:sequence>
+                 </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="betterblogTagAssignPostRequestParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+                        <xsd:element minOccurs="1" maxOccurs="1" name="tagId" type="xsd:string" />
+                        <xsd:element minOccurs="1" maxOccurs="1" name="postId" type="xsd:string" />
+                        <xsd:element minOccurs="0" maxOccurs="1" name="position" type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="betterblogTagAssignPostResponseParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:boolean" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="betterblogTagUnassignPostRequestParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+                        <xsd:element minOccurs="1" maxOccurs="1" name="tagId" type="xsd:string" />
+                        <xsd:element minOccurs="1" maxOccurs="1" name="postId" type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="betterblogTagUnassignPostResponseParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:boolean" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+                    <xsd:complexType name="betterblogPostCommentListEntity">
+                <xsd:sequence>
+                    <xsd:element name="comment_id" type="xsd:string" minOccurs="1" maxOccurs="1" />
+                    <xsd:element name="post_id" type="xsd:string" minOccurs="1" maxOccurs="1" />
+                    <xsd:element name="title" type="xsd:string" minOccurs="1" maxOccurs="1" />
+                    <xsd:element name="comment" type="xsd:string" minOccurs="1" maxOccurs="1" />
+                    <xsd:element name="status" type="xsd:string" minOccurs="1" maxOccurs="1" />
+                    <xsd:element name="customer_id" type="xsd:string" minOccurs="1" maxOccurs="1" />
+                    <xsd:element name="name" type="xsd:string" minOccurs="1" maxOccurs="1" />
+                    <xsd:element name="email" type="xsd:string" minOccurs="1" maxOccurs="1" />
+                    <xsd:element name="created_at" type="xsd:string" minOccurs="1" maxOccurs="1" />
+                    <xsd:element name="updated_at" type="xsd:string" minOccurs="1" maxOccurs="1" />
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="betterblogPostCommentListEntityArray">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="unbounded" name="complexObjectArray" type="typens:betterblogPostCommentListEntity" />
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="betterblogPostCommentListRequestParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+                        <xsd:element minOccurs="0" maxOccurs="1" name="filters" type="typens:filters" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="betterblogPostCommentListResponseParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="0" maxOccurs="1" name="result" type="typens:betterblogPostCommentListEntityArray" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="betterblogPostCommentUpdateStatusRequestParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+                        <xsd:element minOccurs="1" maxOccurs="1" name="commentId" type="xsd:string" />
+                        <xsd:element minOccurs="1" maxOccurs="1" name="status" type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="betterblogPostCommentUpdateStatusResponseParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="0" maxOccurs="1" name="result" type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:complexType name="betterblogPostAttributeEntity">
+                <xsd:sequence>
+                    <xsd:element name="attribute_id" type="xsd:string" minOccurs="1" maxOccurs="1" />
+                    <xsd:element name="code" type="xsd:string" minOccurs="1" maxOccurs="1" />
+                    <xsd:element name="type" type="xsd:string" minOccurs="1" maxOccurs="1" />
+                    <xsd:element name="scope" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="required" type="xsd:int" minOccurs="0" />
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="betterblogPostAttributeEntityArray">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="unbounded" name="complexObjectArray" type="typens:betterblogPostAttributeEntity" />
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="betterblogPostAttributeEntityInfo">
+                <xsd:sequence>
+                    <xsd:element name="attribute_id" type="xsd:string" minOccurs="1" maxOccurs="1" />
+                    <xsd:element name="code" type="xsd:string" minOccurs="1" maxOccurs="1" />
+                    <xsd:element name="type" type="xsd:string" minOccurs="1" maxOccurs="1" />
+                    <xsd:element name="scope" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="required" type="xsd:int" minOccurs="0" />
+                    <xsd:element name="frontend_label" type="typens:betterblogPostAttributeFrontendLabelArray" minOccurs="0" />
+                    <xsd:element name="additional_fields" type="typens:associativeArray" minOccurs="0" />
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="betterblogPostAttributeOptionEntity">
+                <xsd:sequence>
+                    <xsd:element name="label" type="xsd:string" />
+                    <xsd:element name="value" type="xsd:string" />
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="betterblogPostAttributeOptionEntityArray">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="unbounded" name="complexObjectArray" type="typens:betterblogPostAttributeOptionEntity" />
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="betterblogPostAdditionalAttributesEntity">
+                <xsd:sequence>
+                    <xsd:element name="multi_data" type="typens:associativeMultiArray" minOccurs="0" />
+                    <xsd:element name="single_data" type="typens:associativeArray" minOccurs="0" />
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="betterblogPostAttributeOptionEntity">
+                <xsd:sequence>
+                    <xsd:element name="label" type="xsd:string"/>
+                    <xsd:element name="value" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="betterblogPostAttributeOptionEntityArray">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="unbounded" name="complexObjectArray" type="typens:betterblogPostAttributeOptionEntity" />
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="betterblogPostAttributeOptionLabelEntity">
+                <xsd:sequence>
+                    <xsd:element name="store_id" type="typens:ArrayOfString" />
+                    <xsd:element name="value" type="xsd:string" />
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="betterblogPostAttributeOptionLabelArray">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="unbounded" name="complexObjectArray" type="typens:betterblogPostAttributeOptionLabelEntity" />
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="betterblogPostRequestAttributes">
+                <xsd:sequence>
+                    <xsd:element name="attributes" type="typens:ArrayOfString" minOccurs="0"/>
+                    <xsd:element name="additional_attributes" type="typens:ArrayOfString" minOccurs="0"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="betterblogPostAttributeFrontendLabelEntity">
+                <xsd:sequence>
+                    <xsd:element name="store_id" type="xsd:string" />
+                    <xsd:element name="label" type="xsd:string" />
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="betterblogPostAttributeFrontendLabelArray">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="unbounded" name="complexObjectArray" type="typens:betterblogPostAttributeFrontendLabelEntity" />
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="betterblogPostAttributeEntityToCreate">
+                <xsd:sequence>
+                    <xsd:element name="attribute_code" type="xsd:string" minOccurs="1" maxOccurs="1" />
+                    <xsd:element name="frontend_input" type="xsd:string" minOccurs="1" maxOccurs="1" />
+                    <xsd:element name="scope" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="default_value" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="is_required" type="xsd:int" minOccurs="0" />
+                    <xsd:element name="additional_fields" type="typens:associativeArray" minOccurs="0"/>
+                    <xsd:element name="frontend_label" type="typens:betterblogPostAttributeFrontendLabelArray" minOccurs="1" />
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="betterblogPostAttributeEntityToUpdate">
+                <xsd:sequence>
+                    <xsd:element name="scope" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="default_value" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="is_required" type="xsd:int" minOccurs="0" />
+                    <xsd:element name="additional_fields" type="typens:associativeArray" minOccurs="0"/>
+                    <xsd:element name="frontend_label" type="typens:betterblogPostAttributeFrontendLabelArray" minOccurs="1" />
+                </xsd:sequence>
+            </xsd:complexType>
+
+            <xsd:complexType name="betterblogPostAttributeOptionLabelEntity">
+                <xsd:sequence>
+                    <xsd:element name="store_id" type="typens:ArrayOfString" />
+                    <xsd:element name="value" type="xsd:string" />
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="betterblogPostAttributeOptionLabelArray">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="unbounded" name="complexObjectArray" type="typens:betterblogPostAttributeOptionLabelEntity" />
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="betterblogPostAttributeOptionEntityToAdd">
+                <xsd:sequence>
+                    <xsd:element name="label" type="typens:betterblogPostAttributeOptionLabelArray" />
+                    <xsd:element name="order" type="xsd:int" />
+                    <xsd:element name="is_default" type="xsd:int" />
+                </xsd:sequence>
+            </xsd:complexType>
+
+            <xsd:element name="betterblogPostAttributeCurrentStoreRequestParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+                        <xsd:element minOccurs="0" maxOccurs="1" name="store" type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="betterblogPostAttributeCurrentStoreResponseParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:int" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="betterblogPostAttributeListRequestParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="betterblogPostAttributeListResponseParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="0" maxOccurs="1" name="result" type="typens:betterblogPostAttributeEntityArray" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="betterblogPostAttributeOptionsRequestParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+                        <xsd:element minOccurs="1" maxOccurs="1" name="attributeId" type="xsd:int" />
+                        <xsd:element minOccurs="0" maxOccurs="1" name="store" type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="betterblogPostAttributeOptionsResponseParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="result" type="typens:betterblogPostAttributeOptionEntityArray" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="betterblogPostAttributeCreateRequestParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+                        <xsd:element minOccurs="1" maxOccurs="1" name="data" type="typens:betterblogPostAttributeEntityToCreate" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="betterblogPostAttributeCreateResponseParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="betterblogPostAttributeTypesRequestParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="betterblogPostAttributeTypesResponseParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="data" type="typens:betterblogPostAttributeOptionEntityArray" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+
+            <xsd:element name="betterblogPostListOfAdditionalAttributesRequestParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="betterblogPostListOfAdditionalAttributesResponseParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="data" type="typens:betterblogPostAttributeEntityArray" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+
+            <xsd:element name="betterblogPostAttributeUpdateRequestParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+                        <xsd:element minOccurs="1" maxOccurs="1" name="attribute" type="xsd:string" />
+                        <xsd:element minOccurs="1" maxOccurs="1" name="data" type="typens:betterblogPostAttributeEntityToUpdate" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="betterblogPostAttributeUpdateResponseParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+
+            <xsd:element name="betterblogPostAttributeRemoveRequestParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+                        <xsd:element minOccurs="1" maxOccurs="1" name="attribute" type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="betterblogPostAttributeRemoveResponseParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+
+            <xsd:element name="betterblogPostAttributeInfoRequestParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+                        <xsd:element minOccurs="1" maxOccurs="1" name="attribute" type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="betterblogPostAttributeInfoResponseParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="result" type="typens:betterblogPostAttributeEntity" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+
+            <xsd:element name="betterblogPostAttributeAddOptionRequestParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+                        <xsd:element minOccurs="1" maxOccurs="1" name="attribute" type="xsd:string" />
+                        <xsd:element minOccurs="1" maxOccurs="1" name="data" type="typens:betterblogPostAttributeOptionEntityToAdd" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="betterblogPostAttributeAddOptionResponseParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="betterblogPostAttributeRemoveOptionRequestParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+                        <xsd:element minOccurs="1" maxOccurs="1" name="attribute" type="xsd:string" />
+                        <xsd:element minOccurs="1" maxOccurs="1" name="optionId" type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="betterblogPostAttributeRemoveOptionResponseParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="betterblogPostListRequest">
+        <wsdl:part name="parameters" element="typens:betterblogPostListRequestParam" />
+    </wsdl:message>
+    <wsdl:message name="betterblogPostListResponse">
+        <wsdl:part name="parameters" element="typens:betterblogPostListResponseParam" />
+    </wsdl:message>
+    <wsdl:message name="betterblogPostInfoRequest">
+        <wsdl:part name="parameters" element="typens:betterblogPostInfoRequestParam" />
+    </wsdl:message>
+    <wsdl:message name="betterblogPostInfoResponse">
+        <wsdl:part name="parameters" element="typens:betterblogPostInfoResponseParam" />
+    </wsdl:message>
+    <wsdl:message name="betterblogPostAddRequest">
+        <wsdl:part name="parameters" element="typens:betterblogPostAddRequestParam" />
+    </wsdl:message>
+    <wsdl:message name="betterblogPostAddResponse">
+        <wsdl:part name="parameters" element="typens:betterblogPostAddResponseParam"/>
+    </wsdl:message>
+    <wsdl:message name="betterblogPostUpdateRequest">
+        <wsdl:part name="parameters" element="typens:betterblogPostUpdateRequestParam" />
+    </wsdl:message>
+    <wsdl:message name="betterblogPostUpdateResponse">
+        <wsdl:part name="parameters" element="typens:betterblogPostUpdateResponseParam"/>
+    </wsdl:message>
+    <wsdl:message name="betterblogPostRemoveRequest">
+        <wsdl:part name="parameters" element="typens:betterblogPostRemoveRequestParam" />
+    </wsdl:message>
+    <wsdl:message name="betterblogPostRemoveResponse">
+        <wsdl:part name="parameters" element="typens:betterblogPostRemoveResponseParam" />
+    </wsdl:message>
+    <wsdl:message name="betterblogPostAssignCategoryRequest">
+        <wsdl:part name="parameters" element="typens:betterblogPostAssignCategoryRequestParam" />
+    </wsdl:message>
+    <wsdl:message name="betterblogPostAssignCategoryResponse">
+        <wsdl:part name="parameters" element="typens:betterblogPostAssignCategoryResponseParam" />
+    </wsdl:message>
+    <wsdl:message name="betterblogPostUnassignCategoryRequest">
+        <wsdl:part name="parameters" element="typens:betterblogPostUnassignCategoryRequestParam" />
+    </wsdl:message>
+    <wsdl:message name="betterblogPostUnassignCategoryResponse">
+        <wsdl:part name="parameters" element="typens:betterblogPostUnassignCategoryResponseParam" />
+    </wsdl:message>
+    <wsdl:message name="betterblogPostAssignTagRequest">
+        <wsdl:part name="parameters" element="typens:betterblogPostAssignTagRequestParam" />
+    </wsdl:message>
+    <wsdl:message name="betterblogPostAssignTagResponse">
+        <wsdl:part name="parameters" element="typens:betterblogPostAssignTagResponseParam" />
+    </wsdl:message>
+    <wsdl:message name="betterblogPostUnassignTagRequest">
+        <wsdl:part name="parameters" element="typens:betterblogPostUnassignTagRequestParam" />
+    </wsdl:message>
+    <wsdl:message name="betterblogPostUnassignTagResponse">
+        <wsdl:part name="parameters" element="typens:betterblogPostUnassignTagResponseParam" />
+    </wsdl:message>
+    <wsdl:message name="betterblogCategoryListRequest">
+        <wsdl:part name="parameters" element="typens:betterblogCategoryListRequestParam" />
+    </wsdl:message>
+    <wsdl:message name="betterblogCategoryListResponse">
+        <wsdl:part name="parameters" element="typens:betterblogCategoryListResponseParam" />
+    </wsdl:message>
+    <wsdl:message name="betterblogCategoryInfoRequest">
+        <wsdl:part name="parameters" element="typens:betterblogCategoryInfoRequestParam" />
+    </wsdl:message>
+    <wsdl:message name="betterblogCategoryInfoResponse">
+        <wsdl:part name="parameters" element="typens:betterblogCategoryInfoResponseParam" />
+    </wsdl:message>
+    <wsdl:message name="betterblogCategoryAddRequest">
+        <wsdl:part name="parameters" element="typens:betterblogCategoryAddRequestParam" />
+    </wsdl:message>
+    <wsdl:message name="betterblogCategoryAddResponse">
+        <wsdl:part name="parameters" element="typens:betterblogCategoryAddResponseParam"/>
+    </wsdl:message>
+    <wsdl:message name="betterblogCategoryUpdateRequest">
+        <wsdl:part name="parameters" element="typens:betterblogCategoryUpdateRequestParam" />
+    </wsdl:message>
+    <wsdl:message name="betterblogCategoryUpdateResponse">
+        <wsdl:part name="parameters" element="typens:betterblogCategoryUpdateResponseParam"/>
+    </wsdl:message>
+    <wsdl:message name="betterblogCategoryRemoveRequest">
+        <wsdl:part name="parameters" element="typens:betterblogCategoryRemoveRequestParam" />
+    </wsdl:message>
+    <wsdl:message name="betterblogCategoryRemoveResponse">
+        <wsdl:part name="parameters" element="typens:betterblogCategoryRemoveResponseParam" />
+    </wsdl:message>
+    <wsdl:message name="betterblogCategoryMoveRequest">
+        <wsdl:part name="parameters" element="typens:betterblogCategoryMoveRequestParam" />
+    </wsdl:message>
+    <wsdl:message name="betterblogCategoryMoveResponse">
+        <wsdl:part name="parameters" element="typens:betterblogCategoryMoveResponseParam" />
+    </wsdl:message>
+    <wsdl:message name="betterblogCategoryAssignPostRequest">
+        <wsdl:part name="parameters" element="typens:betterblogCategoryAssignPostRequestParam" />
+    </wsdl:message>
+    <wsdl:message name="betterblogCategoryAssignPostResponse">
+        <wsdl:part name="parameters" element="typens:betterblogCategoryAssignPostResponseParam" />
+    </wsdl:message>
+    <wsdl:message name="betterblogCategoryUnassignPostRequest">
+        <wsdl:part name="parameters" element="typens:betterblogCategoryUnassignPostRequestParam" />
+    </wsdl:message>
+    <wsdl:message name="betterblogCategoryUnassignPostResponse">
+        <wsdl:part name="parameters" element="typens:betterblogCategoryUnassignPostResponseParam" />
+    </wsdl:message>
+    <wsdl:message name="betterblogTagListRequest">
+        <wsdl:part name="parameters" element="typens:betterblogTagListRequestParam" />
+    </wsdl:message>
+    <wsdl:message name="betterblogTagListResponse">
+        <wsdl:part name="parameters" element="typens:betterblogTagListResponseParam" />
+    </wsdl:message>
+    <wsdl:message name="betterblogTagInfoRequest">
+        <wsdl:part name="parameters" element="typens:betterblogTagInfoRequestParam" />
+    </wsdl:message>
+    <wsdl:message name="betterblogTagInfoResponse">
+        <wsdl:part name="parameters" element="typens:betterblogTagInfoResponseParam" />
+    </wsdl:message>
+    <wsdl:message name="betterblogTagAddRequest">
+        <wsdl:part name="parameters" element="typens:betterblogTagAddRequestParam" />
+    </wsdl:message>
+    <wsdl:message name="betterblogTagAddResponse">
+        <wsdl:part name="parameters" element="typens:betterblogTagAddResponseParam"/>
+    </wsdl:message>
+    <wsdl:message name="betterblogTagUpdateRequest">
+        <wsdl:part name="parameters" element="typens:betterblogTagUpdateRequestParam" />
+    </wsdl:message>
+    <wsdl:message name="betterblogTagUpdateResponse">
+        <wsdl:part name="parameters" element="typens:betterblogTagUpdateResponseParam"/>
+    </wsdl:message>
+    <wsdl:message name="betterblogTagRemoveRequest">
+        <wsdl:part name="parameters" element="typens:betterblogTagRemoveRequestParam" />
+    </wsdl:message>
+    <wsdl:message name="betterblogTagRemoveResponse">
+        <wsdl:part name="parameters" element="typens:betterblogTagRemoveResponseParam" />
+    </wsdl:message>
+    <wsdl:message name="betterblogTagAssignPostRequest">
+        <wsdl:part name="parameters" element="typens:betterblogTagAssignPostRequestParam" />
+    </wsdl:message>
+    <wsdl:message name="betterblogTagAssignPostResponse">
+        <wsdl:part name="parameters" element="typens:betterblogTagAssignPostResponseParam" />
+    </wsdl:message>
+    <wsdl:message name="betterblogTagUnassignPostRequest">
+        <wsdl:part name="parameters" element="typens:betterblogTagUnassignPostRequestParam" />
+    </wsdl:message>
+    <wsdl:message name="betterblogTagUnassignPostResponse">
+        <wsdl:part name="parameters" element="typens:betterblogTagUnassignPostResponseParam" />
+    </wsdl:message>
+    <wsdl:message name="betterblogPostCommentListRequest">
+        <wsdl:part name="parameters" element="typens:betterblogPostCommentListRequestParam" />
+    </wsdl:message>
+    <wsdl:message name="betterblogPostCommentListResponse">
+        <wsdl:part name="parameters" element="typens:betterblogPostCommentListResponseParam" />
+    </wsdl:message>
+    <wsdl:message name="betterblogPostCommentUpdateStatusRequest">
+        <wsdl:part name="parameters" element="typens:betterblogPostCommentUpdateStatusRequestParam" />
+    </wsdl:message>
+    <wsdl:message name="betterblogPostCommentUpdateStatusResponse">
+        <wsdl:part name="parameters" element="typens:betterblogPostCommentUpdateStatusResponseParam" />
+    </wsdl:message>
+    <wsdl:message name="betterblogPostListOfAdditionalAttributesRequest">
+        <wsdl:part name="parameters" element="typens:betterblogPostListOfAdditionalAttributesRequestParam" />
+    </wsdl:message>
+    <wsdl:message name="betterblogPostListOfAdditionalAttributesResponse">
+        <wsdl:part name="parameters" element="typens:betterblogPostListOfAdditionalAttributesResponseParam" />
+    </wsdl:message>
+    <wsdl:message name="betterblogPostAttributeCurrentStoreRequest">
+        <wsdl:part name="parameters" element="typens:betterblogPostAttributeCurrentStoreRequestParam" />
+    </wsdl:message>
+    <wsdl:message name="betterblogPostAttributeCurrentStoreResponse">
+        <wsdl:part name="parameters" element="typens:betterblogPostAttributeCurrentStoreResponseParam" />
+    </wsdl:message>
+    <wsdl:message name="betterblogPostAttributeListRequest">
+        <wsdl:part name="parameters" element="typens:betterblogPostAttributeListRequestParam" />
+    </wsdl:message>
+    <wsdl:message name="betterblogPostAttributeListResponse">
+        <wsdl:part name="parameters" element="typens:betterblogPostAttributeListResponseParam" />
+    </wsdl:message>
+    <wsdl:message name="betterblogPostAttributeOptionsRequest">
+        <wsdl:part name="parameters" element="typens:betterblogPostAttributeOptionsRequestParam" />
+    </wsdl:message>
+    <wsdl:message name="betterblogPostAttributeOptionsResponse">
+        <wsdl:part name="parameters" element="typens:betterblogPostAttributeOptionsResponseParam" />
+    </wsdl:message>
+    <wsdl:message name="betterblogPostAttributeTypesRequest">
+        <wsdl:part name="parameters" element="typens:betterblogPostAttributeTypesRequestParam" />
+    </wsdl:message>
+    <wsdl:message name="betterblogPostAttributeTypesResponse">
+        <wsdl:part name="parameters" element="typens:betterblogPostAttributeTypesResponseParam" />
+    </wsdl:message>
+    <wsdl:message name="betterblogPostAttributeCreateRequest">
+        <wsdl:part name="parameters" element="typens:betterblogPostAttributeCreateRequestParam" />
+    </wsdl:message>
+    <wsdl:message name="betterblogPostAttributeCreateResponse">
+        <wsdl:part name="parameters" element="typens:betterblogPostAttributeCreateResponseParam" />
+    </wsdl:message>
+    <wsdl:message name="betterblogPostAttributeRemoveRequest">
+        <wsdl:part name="parameters" element="typens:betterblogPostAttributeRemoveRequestParam" />
+    </wsdl:message>
+    <wsdl:message name="betterblogPostAttributeRemoveResponse">
+        <wsdl:part name="parameters" element="typens:betterblogPostAttributeRemoveResponseParam" />
+    </wsdl:message>
+    <wsdl:message name="betterblogPostAttributeInfoRequest">
+        <wsdl:part name="parameters" element="typens:betterblogPostAttributeInfoRequestParam" />
+    </wsdl:message>
+    <wsdl:message name="betterblogPostAttributeInfoResponse">
+        <wsdl:part name="parameters" element="typens:betterblogPostAttributeInfoResponseParam" />
+    </wsdl:message>
+    <wsdl:message name="betterblogPostAttributeUpdateRequest">
+        <wsdl:part name="parameters" element="typens:betterblogPostAttributeUpdateRequestParam" />
+    </wsdl:message>
+    <wsdl:message name="betterblogPostAttributeUpdateResponse">
+        <wsdl:part name="parameters" element="typens:betterblogPostAttributeUpdateResponseParam" />
+    </wsdl:message>
+    <wsdl:message name="betterblogPostAttributeAddOptionRequest">
+        <wsdl:part name="parameters" element="typens:betterblogPostAttributeAddOptionRequestParam" />
+    </wsdl:message>
+    <wsdl:message name="betterblogPostAttributeAddOptionResponse">
+        <wsdl:part name="parameters" element="typens:betterblogPostAttributeAddOptionResponseParam" />
+    </wsdl:message>
+    <wsdl:message name="betterblogPostAttributeRemoveOptionRequest">
+        <wsdl:part name="parameters" element="typens:betterblogPostAttributeRemoveOptionRequestParam" />
+    </wsdl:message>
+    <wsdl:message name="betterblogPostAttributeRemoveOptionResponse">
+        <wsdl:part name="parameters" element="typens:betterblogPostAttributeRemoveOptionResponseParam" />
+    </wsdl:message>
+    <wsdl:portType name="{{var wsdl.handler}}PortType">
+        <wsdl:operation name="betterblogPostList">
+            <wsdl:documentation>Retrieve list of posts</wsdl:documentation>
+            <wsdl:input message="typens:betterblogPostListRequest" />
+            <wsdl:output message="typens:betterblogPostListResponse" />
+        </wsdl:operation>
+        <wsdl:operation name="betterblogPostInfo">
+            <wsdl:documentation>Retrieve post info</wsdl:documentation>
+            <wsdl:input message="typens:betterblogPostInfoRequest" />
+            <wsdl:output message="typens:betterblogPostInfoResponse" />
+        </wsdl:operation>
+        <wsdl:operation name="betterblogPostAdd">
+            <wsdl:documentation>Add post</wsdl:documentation>
+            <wsdl:input message="typens:betterblogPostAddRequest" />
+            <wsdl:output message="typens:betterblogPostAddResponse" />
+        </wsdl:operation>
+        <wsdl:operation name="betterblogPostUpdate">
+            <wsdl:documentation>Update post</wsdl:documentation>
+            <wsdl:input message="typens:betterblogPostUpdateRequest" />
+            <wsdl:output message="typens:betterblogPostUpdateResponse" />
+        </wsdl:operation>
+        <wsdl:operation name="betterblogPostRemove">
+            <wsdl:documentation>Remove post</wsdl:documentation>
+            <wsdl:input message="typens:betterblogPostRemoveRequest" />
+            <wsdl:output message="typens:betterblogPostRemoveResponse" />
+        </wsdl:operation>
+        <wsdl:operation name="betterblogPostAssignCategory">
+            <wsdl:documentation>Assign category to post</wsdl:documentation>
+            <wsdl:input message="typens:betterblogPostAssignCategoryRequest" />
+            <wsdl:output message="typens:betterblogPostAssignCategoryResponse" />
+        </wsdl:operation>
+        <wsdl:operation name="betterblogPostUnassignCategory">
+            <wsdl:documentation>Remove category from post</wsdl:documentation>
+            <wsdl:input message="typens:betterblogPostUnassignCategoryRequest" />
+            <wsdl:output message="typens:betterblogPostUnassignCategoryResponse" />
+        </wsdl:operation>
+        <wsdl:operation name="betterblogPostAssignTag">
+            <wsdl:documentation>Assign tag to post</wsdl:documentation>
+            <wsdl:input message="typens:betterblogPostAssignTagRequest" />
+            <wsdl:output message="typens:betterblogPostAssignTagResponse" />
+        </wsdl:operation>
+        <wsdl:operation name="betterblogPostUnassignTag">
+            <wsdl:documentation>Remove tag from post</wsdl:documentation>
+            <wsdl:input message="typens:betterblogPostUnassignTagRequest" />
+            <wsdl:output message="typens:betterblogPostUnassignTagResponse" />
+        </wsdl:operation>
+            <wsdl:operation name="betterblogCategoryList">
+            <wsdl:documentation>Retrieve list of categories</wsdl:documentation>
+            <wsdl:input message="typens:betterblogCategoryListRequest" />
+            <wsdl:output message="typens:betterblogCategoryListResponse" />
+        </wsdl:operation>
+        <wsdl:operation name="betterblogCategoryInfo">
+            <wsdl:documentation>Retrieve category info</wsdl:documentation>
+            <wsdl:input message="typens:betterblogCategoryInfoRequest" />
+            <wsdl:output message="typens:betterblogCategoryInfoResponse" />
+        </wsdl:operation>
+        <wsdl:operation name="betterblogCategoryAdd">
+            <wsdl:documentation>Add category</wsdl:documentation>
+            <wsdl:input message="typens:betterblogCategoryAddRequest" />
+            <wsdl:output message="typens:betterblogCategoryAddResponse" />
+        </wsdl:operation>
+        <wsdl:operation name="betterblogCategoryUpdate">
+            <wsdl:documentation>Update category</wsdl:documentation>
+            <wsdl:input message="typens:betterblogCategoryUpdateRequest" />
+            <wsdl:output message="typens:betterblogCategoryUpdateResponse" />
+        </wsdl:operation>
+        <wsdl:operation name="betterblogCategoryRemove">
+            <wsdl:documentation>Remove category</wsdl:documentation>
+            <wsdl:input message="typens:betterblogCategoryRemoveRequest" />
+            <wsdl:output message="typens:betterblogCategoryRemoveResponse" />
+        </wsdl:operation>
+        <wsdl:operation name="betterblogCategoryMove">
+            <wsdl:documentation>Move category in tree</wsdl:documentation>
+            <wsdl:input message="typens:betterblogCategoryMoveRequest" />
+            <wsdl:output message="typens:betterblogCategoryMoveResponse" />
+        </wsdl:operation>
+        <wsdl:operation name="betterblogCategoryAssignPost">
+            <wsdl:documentation>Assign post to category</wsdl:documentation>
+            <wsdl:input message="typens:betterblogCategoryAssignPostRequest" />
+            <wsdl:output message="typens:betterblogCategoryAssignPostResponse" />
+        </wsdl:operation>
+        <wsdl:operation name="betterblogCategoryUnassignPost">
+            <wsdl:documentation>Remove post from category</wsdl:documentation>
+            <wsdl:input message="typens:betterblogCategoryUnassignPostRequest" />
+            <wsdl:output message="typens:betterblogCategoryUnassignPostResponse" />
+        </wsdl:operation>
+            <wsdl:operation name="betterblogTagList">
+            <wsdl:documentation>Retrieve list of tags</wsdl:documentation>
+            <wsdl:input message="typens:betterblogTagListRequest" />
+            <wsdl:output message="typens:betterblogTagListResponse" />
+        </wsdl:operation>
+        <wsdl:operation name="betterblogTagInfo">
+            <wsdl:documentation>Retrieve tag info</wsdl:documentation>
+            <wsdl:input message="typens:betterblogTagInfoRequest" />
+            <wsdl:output message="typens:betterblogTagInfoResponse" />
+        </wsdl:operation>
+        <wsdl:operation name="betterblogTagAdd">
+            <wsdl:documentation>Add tag</wsdl:documentation>
+            <wsdl:input message="typens:betterblogTagAddRequest" />
+            <wsdl:output message="typens:betterblogTagAddResponse" />
+        </wsdl:operation>
+        <wsdl:operation name="betterblogTagUpdate">
+            <wsdl:documentation>Update tag</wsdl:documentation>
+            <wsdl:input message="typens:betterblogTagUpdateRequest" />
+            <wsdl:output message="typens:betterblogTagUpdateResponse" />
+        </wsdl:operation>
+        <wsdl:operation name="betterblogTagRemove">
+            <wsdl:documentation>Remove tag</wsdl:documentation>
+            <wsdl:input message="typens:betterblogTagRemoveRequest" />
+            <wsdl:output message="typens:betterblogTagRemoveResponse" />
+        </wsdl:operation>
+        <wsdl:operation name="betterblogTagAssignPost">
+            <wsdl:documentation>Assign post to tag</wsdl:documentation>
+            <wsdl:input message="typens:betterblogTagAssignPostRequest" />
+            <wsdl:output message="typens:betterblogTagAssignPostResponse" />
+        </wsdl:operation>
+        <wsdl:operation name="betterblogTagUnassignPost">
+            <wsdl:documentation>Remove post from tag</wsdl:documentation>
+            <wsdl:input message="typens:betterblogTagUnassignPostRequest" />
+            <wsdl:output message="typens:betterblogTagUnassignPostResponse" />
+        </wsdl:operation>
+            <wsdl:operation name="betterblogPostCommentList">
+            <wsdl:documentation>Retrieve list of post comments</wsdl:documentation>
+            <wsdl:input message="typens:betterblogPostCommentListRequest" />
+            <wsdl:output message="typens:betterblogPostCommentListResponse" />
+        </wsdl:operation>
+        <wsdl:operation name="betterblogPostCommentUpdateStatus">
+            <wsdl:documentation>Change post comment status</wsdl:documentation>
+            <wsdl:input message="typens:betterblogPostCommentUpdateStatusRequest" />
+            <wsdl:output message="typens:betterblogPostCommentUpdateStatusResponse" />
+        </wsdl:operation>
+        <wsdl:operation name="betterblogPostListOfAdditionalAttributes">
+            <wsdl:documentation>Get list of additional attributes which are not in default create/update list</wsdl:documentation>
+            <wsdl:input message="typens:betterblogPostListOfAdditionalAttributesRequest"/>
+            <wsdl:output message="typens:betterblogPostListOfAdditionalAttributesResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="betterblogPostAttributeCurrentStore">
+            <wsdl:documentation>Set/Get current store view</wsdl:documentation>
+            <wsdl:input message="typens:betterblogPostAttributeCurrentStoreRequest"/>
+            <wsdl:output message="typens:betterblogPostAttributeCurrentStoreResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="betterblogPostListOfAdditionalAttributes">
+            <wsdl:documentation>Get list of additional attributes which are not in default create/update list</wsdl:documentation>
+            <wsdl:input message="typens:betterblogPostListOfAdditionalAttributesRequest"/>
+            <wsdl:output message="typens:betterblogPostListOfAdditionalAttributesResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="betterblogPostAttributeList">
+            <wsdl:documentation>Retrieve post attribute list</wsdl:documentation>
+            <wsdl:input message="typens:betterblogPostAttributeListRequest"/>
+            <wsdl:output message="typens:betterblogPostAttributeListResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="betterblogPostAttributeOptions">
+            <wsdl:documentation>Retrieve post attribute options</wsdl:documentation>
+            <wsdl:input message="typens:betterblogPostAttributeOptionsRequest"/>
+            <wsdl:output message="typens:betterblogPostAttributeOptionsResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="betterblogPostAttributeTypes">
+            <wsdl:documentation>Get list of possible post attribute types</wsdl:documentation>
+            <wsdl:input message="typens:betterblogPostAttributeTypesRequest"/>
+            <wsdl:output message="typens:betterblogPostAttributeTypesResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="betterblogPostAttributeCreate">
+            <wsdl:documentation>Create new post attribute</wsdl:documentation>
+            <wsdl:input message="typens:betterblogPostAttributeCreateRequest"/>
+            <wsdl:output message="typens:betterblogPostAttributeCreateResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="betterblogPostAttributeRemove">
+            <wsdl:documentation>Delete post attribute</wsdl:documentation>
+            <wsdl:input message="typens:betterblogPostAttributeRemoveRequest"/>
+            <wsdl:output message="typens:betterblogPostAttributeRemoveResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="betterblogPostAttributeInfo">
+            <wsdl:documentation>Get full information about post attribute with list of options</wsdl:documentation>
+            <wsdl:input message="typens:betterblogPostAttributeInfoRequest"/>
+            <wsdl:output message="typens:betterblogPostAttributeInfoResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="betterblogPostAttributeUpdate">
+            <wsdl:documentation>Update post attribute</wsdl:documentation>
+            <wsdl:input message="typens:betterblogPostAttributeUpdateRequest"/>
+            <wsdl:output message="typens:betterblogPostAttributeUpdateResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="betterblogPostAttributeAddOption">
+            <wsdl:documentation>Add option to post attribute</wsdl:documentation>
+            <wsdl:input message="typens:betterblogPostAttributeAddOptionRequest"/>
+            <wsdl:output message="typens:betterblogPostAttributeAddOptionResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="betterblogPostAttributeRemoveOption">
+            <wsdl:documentation>Remove option from post attribute</wsdl:documentation>
+            <wsdl:input message="typens:betterblogPostAttributeRemoveOptionRequest"/>
+            <wsdl:output message="typens:betterblogPostAttributeRemoveOptionResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="{{var wsdl.handler}}Binding" type="typens:{{var wsdl.handler}}PortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+        <wsdl:operation name="betterblogPostList">
+            <soap:operation soapAction="" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="betterblogPostInfo">
+            <soap:operation soapAction="" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="betterblogPostAdd">
+            <soap:operation soapAction="" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="betterblogPostUpdate">
+            <soap:operation soapAction="" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="betterblogPostRemove">
+            <soap:operation soapAction="" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="betterblogPostAssignCategory">
+            <soap:operation soapAction="" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="betterblogPostUnassignCategory">
+            <soap:operation soapAction="" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="betterblogPostAssignTag">
+            <soap:operation soapAction="" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="betterblogPostUnassignTag">
+            <soap:operation soapAction="" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+            <wsdl:operation name="betterblogCategoryList">
+            <soap:operation soapAction="" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="betterblogCategoryInfo">
+            <soap:operation soapAction="" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="betterblogCategoryAdd">
+            <soap:operation soapAction="" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="betterblogCategoryUpdate">
+            <soap:operation soapAction="" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="betterblogCategoryRemove">
+            <soap:operation soapAction="" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="betterblogCategoryMove">
+            <soap:operation soapAction="" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="betterblogCategoryAssignPost">
+            <soap:operation soapAction="" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="betterblogCategoryUnassignPost">
+            <soap:operation soapAction="" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+            <wsdl:operation name="betterblogTagList">
+            <soap:operation soapAction="" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="betterblogTagInfo">
+            <soap:operation soapAction="" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="betterblogTagAdd">
+            <soap:operation soapAction="" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="betterblogTagUpdate">
+            <soap:operation soapAction="" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="betterblogTagRemove">
+            <soap:operation soapAction="" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="betterblogTagAssignPost">
+            <soap:operation soapAction="" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="betterblogTagUnassignPost">
+            <soap:operation soapAction="" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+            <wsdl:operation name="betterblogPostCommentList">
+            <soap:operation soapAction="" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="betterblogPostCommentUpdateStatus">
+            <soap:operation soapAction="" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="betterblogPostListOfAdditionalAttributes">
+            <soap:operation soapAction=""/>
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="betterblogPostAttributeCurrentStore">
+            <soap:operation soapAction="" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="betterblogPostAttributeList">
+            <soap:operation soapAction="" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="betterblogPostAttributeOptions">
+            <soap:operation soapAction="" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="betterblogPostAttributeTypes">
+            <soap:operation soapAction="" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="betterblogPostAttributeCreate">
+            <soap:operation soapAction="" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="betterblogPostAttributeUpdate">
+            <soap:operation soapAction="" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="betterblogPostAttributeRemove">
+            <soap:operation soapAction="" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="betterblogPostAttributeInfo">
+            <soap:operation soapAction="" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="betterblogPostAttributeAddOption">
+            <soap:operation soapAction="" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="betterblogPostAttributeRemoveOption">
+            <soap:operation soapAction="" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="{{var wsdl.name}}Service">
+        <wsdl:port name="{{var wsdl.handler}}Port" binding="typens:{{var wsdl.handler}}Binding">
+            <soap:address location="{{var wsdl.url}}" />
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

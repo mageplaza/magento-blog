@@ -1,0 +1,47 @@
+<?php
+/**
+ * Mageplaza_BetterBlog extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category       Mageplaza
+ * @package        Mageplaza_BetterBlog
+ * @copyright      Copyright (c) 2015
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+/**
+ * Post view widget template
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_BetterBlog
+ * @author      Sam
+ */
+?>
+<?php $_post = $this->getCurrentPost();?>
+<?php if ($_post) :?>
+    <div class="post-widget-view">
+        <h3><?php echo $_post->getPostTitle()?></h3>
+        <div>
+            <div class="post_title-widget">
+                <?php echo Mage::helper('mageplaza_betterblog')->__('Name');?>:<?php echo $_post->getPostTitle();?>
+            </div>
+            <div class="post_excerpt-widget">
+                <?php echo Mage::helper('mageplaza_betterblog')->__('Short Description');?>:<?php echo $_post->getPostExcerpt();?>
+            </div>
+            <div class="post_content-widget">
+                <?php echo Mage::helper('mageplaza_betterblog')->__('Content');?>:<?php echo $_post->getPostContent();?>
+            </div>
+            <div class="image-widget">
+                <?php if ($_post->getImage()) :?>
+    <img src="<?php echo Mage::helper('mageplaza_betterblog/post_image')->init($_post, 'image')->resize(75);?>" alt="<?php echo $this->escapeHtml($_post->getPostTitle());?>" />
+<?php endif;?>
+            </div>
+
+        </div>
+    </div>
+<?php endif;?>

@@ -1,0 +1,52 @@
+<?php 
+/**
+ * Mageplaza_BetterBlog extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category       Mageplaza
+ * @package        Mageplaza_BetterBlog
+ * @copyright      Copyright (c) 2015
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+/**
+ * Category Post list template
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_BetterBlog
+ * @author      Sam
+ */
+?>
+<?php $_posts = $this->getPosts(); ?>
+<?php if ($_posts->getSize() > 0) :?>
+<div class="posts-list-container">
+    <?php foreach ($_posts as $_post) : ?>
+        <div class="post-list-item">
+            <h3>
+                <a href="<?php echo $_post->getPostUrl()?>">
+                    <?php echo $_post->getPostTitle();?>
+                </a>
+            </h3>
+
+
+
+            <div class="post-image">
+                <?php if ($_post->getImage()) :?>
+                    <img src="<?php echo Mage::helper('mageplaza_betterblog/post_image')->init($_post, 'image');?>" alt="<?php echo $this->escapeHtml($_post->getPostTitle());?>" />
+                <?php endif;?>
+            </div>
+
+            <div class="post-post_excerpt">
+                <?php echo $_post->getPostExcerpt();?>
+            </div>
+
+
+        </div>
+    <?php endforeach;?>
+</div>
+<?php endif;?>

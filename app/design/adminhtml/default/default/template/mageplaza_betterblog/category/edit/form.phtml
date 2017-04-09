@@ -1,0 +1,213 @@
+<?php
+/**
+ * Mageplaza_BetterBlog extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category       Mageplaza
+ * @package        Mageplaza_BetterBlog
+ * @copyright      Copyright (c) 2015
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+?>
+<div class="content-header">
+    <h3 class="icon-head head-categories">
+        <?php echo $this->escapeHtml($this->getHeader()) . ($this->getCategoryId() ? ' (' . Mage::helper('mageplaza_betterblog')->__('ID: %s', $this->getCategoryId()) . ')' : '') ?>
+    </h3>
+    <p class="content-buttons form-buttons">
+        <?php echo $this->getResetButtonHtml() ?>
+        <?php if ($this->getCategoryId()): ?>
+            <?php echo $this->getDeleteButtonHtml() ?>
+        <?php endif; ?>
+        <?php echo $this->getAdditionalButtonsHtml(); ?>
+        <?php echo $this->getSaveButtonHtml() ?>
+    </p>
+</div>
+<?php echo $this->getTabsHtml() ?>
+<iframe name="iframeSave" style="display:none; width:100%;" src="<?php echo $this->getJsUrl() ?>blank.html"></iframe>
+<form target="iframeSave" id="category_edit_form" action="<?php echo $this->getSaveUrl() ?>" method="post" enctype="multipart/form-data">
+    <div class="no-display">
+        <input type="hidden" name="isIframe" value="1" />
+        <input name="form_key" type="hidden" value="<?php echo $this->getFormKey() ?>" />
+        <input type="hidden" name="active_tab_id" id="active_tab_id" value="" />
+        <input type="hidden" name="category_posts" id="in_category_posts" value="" />
+    </div>
+    <div id="category_tab_content"></div>
+</form>
+<script type="text/javascript">
+//<![CDATA[
+    categoryForm = new varienForm('category_edit_form');
+    categoryForm.submit= function (url) {
+        this.errorSections = $H({});
+        this.canShowError = true;
+        this.submitUrl = url;
+        if (this.validator && this.validator.validate()) {
+            if (this.validationUrl) {
+                this._validate();
+            } else {
+                if (this.isSubmitted) {
+                    return false;
+                }
+                this.isSubmitted = true;
+                this._submit();
+            }
+            displayLoadingMask();
+            return true;
+        }
+        return false;
+    };
+    categoryForm.refreshPath = function () {
+        categoryId = this.getCategoryId();
+        if (!categoryId) {
+            return false;
+        }
+        var refreshPathSuccess = function(transport) {
+            if (transport.responseText.isJSON()) {
+                response = transport.responseText.evalJSON()
+                if (response.error) {
+                    alert(response.message);
+                } else {
+                    if (categoryForm.getCategoryId() == response['id']) {
+                        categoryForm.setCategoryPath(response['path']);
+                    }
+                }
+            }
+        };
+        new Ajax.Request(
+            '<?php echo $this->getRefreshPathUrl() ?>',
+            {
+                method: 'POST',
+                evalScripts: true,
+                onSuccess: refreshPathSuccess
+            }
+        );
+    };
+
+    categoryForm.getCategoryId = function () {
+        collection = $(this.formId).getInputs('hidden', 'category[id]');
+        if (collection.size() > 0) {
+            return collection.first().value;
+        }
+        return false;
+    };
+    categoryForm.setCategoryPath = function (path) {
+        collection = $(this.formId).getInputs('hidden', 'category[path]');
+        if (collection.size() > 0) {
+            return collection.first().value = path;
+        }
+    };
+    function categorySubmit(url, useAjax) {
+        var activeTab = $('active_tab_id');
+        if (activeTab) {
+            if (activeTab.tabsJsObject && activeTab.tabsJsObject.activeTab) {
+                activeTab.value = activeTab.tabsJsObject.activeTab.id;
+            }
+        }
+        var params = {};
+        var fields = $('category_edit_form').getElementsBySelector('input', 'select');
+        for(var i=0;i<fields.length;i++) {
+            if (!fields[i].name) {
+                continue;
+            }
+            params[fields[i].name] = fields[i].getValue();
+        }
+        var categoryId = params['category[id]'] ? params['category[id]'] : 0;
+        var isCreating = categoryId == 0;
+        var path = params['category[path]'].split('/');
+        var parentId = path.pop();
+        if (parentId == categoryId) {
+            parentId = path.pop();
+        }
+        if (isCreating) {
+            if (!tree.currentNodeId) {
+                tree.currentNodeId = parentId;
+            }
+            tree.addNodeTo = parentId;
+        } else {
+            var currentNode = tree.getNodeById(categoryId);
+            var oldClass = 'active-category';
+            var newClass = 'active-category';
+            if (currentNode) {
+                if (parseInt(params['category[status]'])) {
+                    var oldClass = 'no-active-category';
+                    var newClass = 'active-category';
+                } else {
+                    var oldClass = 'active-category';
+                    var newClass = 'no-active-category';
+                }
+                Element.removeClassName(currentNode.ui.wrap.firstChild, oldClass);
+                Element.addClassName(currentNode.ui.wrap.firstChild, newClass);
+            }
+        }
+        categoryForm.submit();
+    }
+    <?php if (($block = $this->getLayout()->getBlock('category.post.grid')) && ($_gridJsObject=$block->getJsObjectName())): ?>
+    var categoryPosts = $H(<?php echo $this->getPostsJson() ?>);
+    $('in_category_posts').value = categoryPosts.toQueryString();
+    function registerCategoryPost(grid, element, checked) {
+        if (checked) {
+            if (element.positionElement) {
+                element.positionElement.disabled = false;
+                categoryPosts.set(element.value, element.positionElement.value);
+            }
+        } else {
+            if (element.positionElement) {
+                element.positionElement.disabled = true;
+            }
+            categoryPosts.unset(element.value);
+        }
+        $('in_category_posts').value = categoryPosts.toQueryString();
+            grid.reloadParams = {'selected_posts[]':categoryPosts.keys()
+        };
+    }
+    function categoryPostRowClick(grid, event) {
+        var trElement = Event.findElement(event, 'tr');
+        var isInput   = Event.element(event).tagName == 'INPUT';
+        if (trElement) {
+            var checkbox = Element.getElementsBySelector(trElement, 'input');
+            if (checkbox[0]) {
+                var checked = isInput ? checkbox[0].checked : !checkbox[0].checked;
+                <?php echo $_gridJsObject ?>.setCheckboxChecked(checkbox[0], checked);
+            }
+        }
+    }
+    function positionPostChange(event) {
+        var element = Event.element(event);
+        if (element && element.checkboxElement && element.checkboxElement.checked) {
+            categoryPosts.set(element.checkboxElement.value, element.value);
+            $('in_category_posts').value = categoryPosts.toQueryString();
+        }
+    }
+    var tabIndex = 1000;
+    function categoryPostRowInit(grid, row) {
+        var checkbox = $(row).getElementsByClassName('checkbox')[0];
+        var position = $(row).getElementsByClassName('input-text')[0];
+        if (checkbox && position) {
+            checkbox.positionElement = position;
+            position.checkboxElement = checkbox;
+            position.disabled = !checkbox.checked;
+            position.tabIndex = tabIndex++;
+            Event.observe(position, 'keyup', positionPostChange);
+        }
+    }
+    <?php echo $_gridJsObject ?>.rowClickCallback = categoryPostRowClick;
+    <?php echo $_gridJsObject ?>.initRowCallback = categoryPostRowInit;
+    <?php echo $_gridJsObject ?>.checkboxCheckCallback = registerCategoryPost;
+    <?php echo $_gridJsObject ?>.rows.each(function(row) {
+        categoryPostRowInit(<?php echo $_gridJsObject ?>, row)
+    });
+    <?php endif; ?>
+    <?php if ($this->isAjax() && ($block = $this->getLayout()->getBlock('tabs')) && ($_tabsJsObject=$block->getJsObjectName())): ?>
+        <?php echo $_tabsJsObject ?>.moveTabContentInDest();
+        if (<?php echo $_tabsJsObject ?>.activeTab) {
+            $('active_tab_id').value = <?php echo $_tabsJsObject ?>.activeTab.id;
+        }
+        $('active_tab_id').tabsJsObject = <?php echo $_tabsJsObject ?>;
+    <?php endif; ?>
+//]]>
+</script>

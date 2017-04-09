@@ -1,0 +1,477 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Mageplaza_BetterBlog extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category       Mageplaza
+ * @package        Mageplaza_BetterBlog
+ * @copyright      Copyright (c) 2015
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+-->
+<config>
+    <api>
+        <resources>
+            <betterblog_post translate="title" module="mageplaza_betterblog">
+                <title>Post API</title>
+                <model>mageplaza_betterblog/post_api</model>
+                <acl>betterblog/post</acl>
+                <methods>
+                    <list translate="title" module="mageplaza_betterblog">
+                        <title>Retrieve list of posts</title>
+                        <method>items</method>
+                        <acl>betterblog/post/list</acl>
+                    </list>
+                    <info translate="title" module="mageplaza_betterblog">
+                        <title>Retrieve post info</title>
+                        <acl>betterblog/post/info</acl>
+                    </info>
+                    <add translate="title" module="mageplaza_betterblog">
+                        <title>Add post</title>
+                        <acl>betterblog/post/add</acl>
+                    </add>
+                    <update translate="title" module="mageplaza_betterblog">
+                        <title>Update post</title>
+                        <acl>betterblog/post/update</acl>
+                    </update>
+                    <remove translate="title" module="mageplaza_betterblog">
+                        <title>Remove post</title>
+                        <acl>betterblog/post/remove</acl>
+                    </remove>
+                    <currentStore>
+                        <title>Set/Get current store view</title>
+                    </currentStore>
+                    <listOfAdditionalAttributes translate="title" module="mageplaza_betterblog">
+                        <title>Get list of non-default attributes</title>
+                        <method>getAdditionalAttributes</method>
+                    </listOfAdditionalAttributes>
+                    <assignCategory translate="title" module="mageplaza_betterblog">
+                        <title>Assign category to Post</title>
+                        <acl>betterblog/post/update</acl>
+                    </assignCategory>
+                    <unassignCategory translate="title" module="mageplaza_betterblog">
+                        <title>Remove category from post</title>
+                        <acl>betterblog/post/update</acl>
+                    </unassignCategory>
+                    <assignTag translate="title" module="mageplaza_betterblog">
+                        <title>Assign tag to Post</title>
+                        <acl>betterblog/post/update</acl>
+                    </assignTag>
+                    <unassignTag translate="title" module="mageplaza_betterblog">
+                        <title>Remove tag from post</title>
+                        <acl>betterblog/post/update</acl>
+                    </unassignTag>
+                </methods>
+                <faults module="mageplaza_betterblog">
+                    <post_not_exists>
+                        <code>101</code>
+                        <message>Requested post does not exist.</message>
+                    </post_not_exists>
+                    <invalid_data>
+                        <code>102</code>
+                        <message>Provided data is invalid.</message>
+                    </invalid_data>
+                    <save_error>
+                        <code>103</code>
+                        <message>Error while saving post. Details in error message.</message>
+                    </save_error>
+                    <remove_error>
+                        <code>104</code>
+                        <message>Error while removing post. Details in error message.</message>
+                    </remove_error>
+                    <post_category_not_exists>
+                        <code>105</code>
+                        <message>Category does not exist.</message>
+                    </post_category_not_exists>
+                    <post_tag_not_exists>
+                        <code>106</code>
+                        <message>Tag does not exist.</message>
+                    </post_tag_not_exists>
+                    <store_not_exists>
+                        <code>100</code>
+                        <message>Requested store view not found.</message>
+                    </store_not_exists>
+                </faults>
+            </betterblog_post>
+            <betterblog_post_comment translate="title" module="mageplaza_betterblog">
+                <title>Post Comments</title>
+                <model>mageplaza_betterblog/post_comment_api</model>
+                <acl>betterblog/post/comment</acl>
+                <methods>
+                    <list translate="title" module="mageplaza_betterblog">
+                        <title>Retrieve Post Comments</title>
+                        <method>items</method>
+                        <acl>betterblog/post_comment/list</acl>
+                    </list>
+                    <updateStatus translate="title" module="mageplaza_betterblog">
+                        <title>Update Post Status</title>
+                        <method>updateStatus</method>
+                        <acl>betterblog/post_comment/updateStatus</acl>
+                    </updateStatus>
+                </methods>
+                <faults module="mageplaza_betterblog">
+                    <not_exists>
+                        <code>101</code>
+                        <message>Requested comment not found.</message>
+                    </not_exists>
+                </faults>
+            </betterblog_post_comment>
+
+            <betterblog_post_attribute translate="title" module="mageplaza_betterblog">
+                <title>Product attributes API</title>
+                <model>mageplaza_betterblog/post_attribute_api</model>
+                <acl>betterblog/post</acl>
+                <methods>
+                    <currentStore translate="title" module="mageplaza_betterblog">
+                        <title>Set/Get current store view</title>
+                        <acl>betterblog/post_attribute/write</acl>
+                    </currentStore>
+                    <list translate="title" module="mageplaza_betterblog">
+                        <title>Retrieve attribute list</title>
+                        <method>items</method>
+                        <acl>betterblog/post_attribute/read</acl>
+                    </list>
+                    <options translate="title" module="mageplaza_betterblog">
+                        <title>Retrieve attribute options</title>
+                        <acl>betterblog/post_attribute/read</acl>
+                    </options>
+                    <types translate="title" module="mageplaza_betterblog">
+                        <title>Get list of possible attribute types</title>
+                        <acl>betterblog/post_attribute/types</acl>
+                    </types>
+                    <create translate="title" module="mageplaza_betterblog">
+                        <title>Create new attribute</title>
+                        <acl>betterblog/post_attribute/create</acl>
+                    </create>
+                    <update translate="title" module="mageplaza_betterblog">
+                        <title>Update attribute</title>
+                        <acl>betterblog/post_attribute/update</acl>
+                    </update>
+                    <remove translate="title" module="mageplaza_betterblog">
+                        <title>Delete attribute</title>
+                        <acl>betterblog/post_attribute/remove</acl>
+                    </remove>
+                    <info translate="title" module="mageplaza_betterblog">
+                        <title>Get full information about attribute with list of options</title>
+                        <acl>betterblog/post_attribute/info</acl>
+                    </info>
+                    <addOption translate="title" module="mageplaza_betterblog">
+                        <title>Add option</title>
+                        <acl>betterblog/post_attribute/option/add</acl>
+                    </addOption>
+                    <removeOption translate="title" module="mageplaza_betterblog">
+                        <title>Remove option</title>
+                        <acl>betterblog/post_attribute/option/remove</acl>
+                    </removeOption>
+                </methods>
+                <faults module="mageplaza_betterblog">
+                    <store_not_exists>
+                        <code>100</code>
+                        <message>Requested store view not found.</message>
+                    </store_not_exists>
+                    <not_exists>
+                        <code>101</code>
+                        <message>Requested attribute not found.</message>
+                    </not_exists>
+                    <invalid_parameters>
+                        <code>102</code>
+                        <message>Invalid request parameters.</message>
+                    </invalid_parameters>
+                    <invalid_code>
+                        <code>103</code>
+                        <message>Attribute code is invalid. Please use only letters (a-z), numbers (0-9) or underscore(_) in this field, first character should be a letter.</message>
+                    </invalid_code>
+                    <invalid_frontend_input>
+                        <code>104</code>
+                        <message>Incorrect attribute type.</message>
+                    </invalid_frontend_input>
+                    <unable_to_save>
+                        <code>105</code>
+                        <message>Unable to save attribute.</message>
+                    </unable_to_save>
+                    <can_not_delete>
+                        <code>106</code>
+                        <message>This attribute cannot be deleted.</message>
+                    </can_not_delete>
+                    <can_not_edit>
+                        <code>107</code>
+                        <message>This attribute cannot be edited.</message>
+                    </can_not_edit>
+                    <unable_to_add_option>
+                        <code>108</code>
+                        <message>Unable to add option.</message>
+                    </unable_to_add_option>
+                    <unable_to_remove_option>
+                        <code>109</code>
+                        <message>Unable to remove option.</message>
+                    </unable_to_remove_option>
+                </faults>
+            </betterblog_post_attribute>
+
+            <betterblog_category translate="title" module="mageplaza_betterblog">
+                <title>Category API</title>
+                <model>mageplaza_betterblog/category_api</model>
+                <acl>betterblog/category</acl>
+                <methods>
+                    <list translate="title" module="mageplaza_betterblog">
+                        <title>Retrieve list of categories</title>
+                        <method>items</method>
+                        <acl>betterblog/category/list</acl>
+                    </list>
+                    <info translate="title" module="mageplaza_betterblog">
+                        <title>Retrieve category info</title>
+                        <acl>betterblog/category/info</acl>
+                    </info>
+                    <add translate="title" module="mageplaza_betterblog">
+                        <title>Add category</title>
+                        <acl>betterblog/category/add</acl>
+                    </add>
+                    <update translate="title" module="mageplaza_betterblog">
+                        <title>Update category</title>
+                        <acl>betterblog/category/update</acl>
+                    </update>
+                    <remove translate="title" module="mageplaza_betterblog">
+                        <title>Remove category</title>
+                        <acl>betterblog/category/remove</acl>
+                    </remove>
+                    <level translate="title" module="mageplaza_betterblog">
+                        <title>Retrieve one level of categories</title>
+                        <acl>betterblog/category/info</acl>
+                    </level>
+                    <move translate="title" module="mageplaza_betterblog">
+                        <title>Move category in tree</title>
+                        <acl>betterblog/category/move</acl>
+                    </move>
+                    <assignPost translate="title" module="mageplaza_betterblog">
+                        <title>Assign post to Category</title>
+                        <acl>betterblog/category/update</acl>
+                    </assignPost>
+                    <unassignPost translate="title" module="mageplaza_betterblog">
+                        <title>Remove post from category</title>
+                        <acl>betterblog/category/update</acl>
+                    </unassignPost>
+                </methods>
+                <faults module="mageplaza_betterblog">
+                    <category_not_exists>
+                        <code>101</code>
+                        <message>Requested category does not exist.</message>
+                    </category_not_exists>
+                    <invalid_data>
+                        <code>102</code>
+                        <message>Provided data is invalid.</message>
+                    </invalid_data>
+                    <save_error>
+                        <code>103</code>
+                        <message>Error while saving category. Details in error message.</message>
+                    </save_error>
+                    <remove_error>
+                        <code>104</code>
+                        <message>Error while removing category. Details in error message.</message>
+                    </remove_error>
+                    <not_moved>
+                        <code>105</code>
+                        <message>Category not moved. Details in error message.</message>
+                    </not_moved>
+                    <category_post_not_exists>
+                        <code>106</code>
+                        <message>Post does not exist.</message>
+                    </category_post_not_exists>
+                </faults>
+            </betterblog_category>
+            <betterblog_tag translate="title" module="mageplaza_betterblog">
+                <title>Tag API</title>
+                <model>mageplaza_betterblog/tag_api</model>
+                <acl>betterblog/tag</acl>
+                <methods>
+                    <list translate="title" module="mageplaza_betterblog">
+                        <title>Retrieve list of tags</title>
+                        <method>items</method>
+                        <acl>betterblog/tag/list</acl>
+                    </list>
+                    <info translate="title" module="mageplaza_betterblog">
+                        <title>Retrieve tag info</title>
+                        <acl>betterblog/tag/info</acl>
+                    </info>
+                    <add translate="title" module="mageplaza_betterblog">
+                        <title>Add tag</title>
+                        <acl>betterblog/tag/add</acl>
+                    </add>
+                    <update translate="title" module="mageplaza_betterblog">
+                        <title>Update tag</title>
+                        <acl>betterblog/tag/update</acl>
+                    </update>
+                    <remove translate="title" module="mageplaza_betterblog">
+                        <title>Remove tag</title>
+                        <acl>betterblog/tag/remove</acl>
+                    </remove>
+                    <assignPost translate="title" module="mageplaza_betterblog">
+                        <title>Assign post to Tag</title>
+                        <acl>betterblog/tag/update</acl>
+                    </assignPost>
+                    <unassignPost translate="title" module="mageplaza_betterblog">
+                        <title>Remove post from tag</title>
+                        <acl>betterblog/tag/update</acl>
+                    </unassignPost>
+                </methods>
+                <faults module="mageplaza_betterblog">
+                    <tag_not_exists>
+                        <code>101</code>
+                        <message>Requested tag does not exist.</message>
+                    </tag_not_exists>
+                    <invalid_data>
+                        <code>102</code>
+                        <message>Provided data is invalid.</message>
+                    </invalid_data>
+                    <save_error>
+                        <code>103</code>
+                        <message>Error while saving tag. Details in error message.</message>
+                    </save_error>
+                    <remove_error>
+                        <code>104</code>
+                        <message>Error while removing tag. Details in error message.</message>
+                    </remove_error>
+                    <tag_post_not_exists>
+                        <code>105</code>
+                        <message>Post does not exist.</message>
+                    </tag_post_not_exists>
+                </faults>
+            </betterblog_tag>
+        </resources>
+        <resources_alias>
+            <post>betterblog_post</post>
+            <post_comment>betterblog_post_comment</post_comment>
+            <post_attribute>betterblog_post_attribute</post_attribute>
+            <category>betterblog_category</category>
+            <tag>betterblog_tag</tag>
+        </resources_alias>
+        <v2>
+            <resources_function_prefix>
+                <post>betterblogPost</post>
+                <post_comment>betterblogPostComment</post_comment>
+                <post_attribute>betterblogPostAttribute</post_attribute>
+                <category>betterblogCategory</category>
+                <tag>betterblogTag</tag>
+            </resources_function_prefix>
+        </v2>
+        <acl>
+            <resources>
+                <mageplaza_betterblog translate="title" module="mageplaza_betterblog">
+                    <title>BetterBlog</title>
+                    <post translate="title" module="mageplaza_betterblog">
+                        <title>Post</title>
+                        <sort_order>0</sort_order>
+                        <list translate="title" module="mageplaza_betterblog">
+                            <title>List</title>
+                        </list>
+                        <info translate="title" module="mageplaza_betterblog">
+                            <title>Info</title>
+                        </info>
+                        <add translate="title" module="mageplaza_betterblog">
+                            <title>Add</title>
+                        </add>
+                        <update translate="title" module="mageplaza_betterblog">
+                            <title>Update</title>
+                        </update>
+                        <remove translate="title" module="mageplaza_betterblog">
+                            <title>Remove</title>
+                        </remove>
+                    </post>
+                    <post_comment translate="title" module="mageplaza_betterblog">
+                        <title>Post Comments</title>
+                        <sort_order>3</sort_order>
+                        <list translate="title" module="mageplaza_betterblog">
+                            <title>List</title>
+                        </list>
+                        <updateStatus translate="title" module="mageplaza_betterblog">
+                            <title>Update Status</title>
+                        </updateStatus>
+                    </post_comment>
+
+                    <post_attribute translate="title" module="mageplaza_betterblog">
+                        <title>Post Attributes</title>
+                        <sort_order>6</sort_order>
+                        <currentStore translate="title" module="mageplaza_betterblog">
+                            <title>Set/Get current store view</title>
+                        </currentStore>
+                        <list translate="title" module="mageplaza_betterblog">
+                            <title>Retrieve attribute list</title>
+                        </list>
+                        <options translate="title" module="mageplaza_betterblog">
+                            <title>Retrieve attribute options</title>
+                        </options>
+                        <types translate="title" module="mageplaza_betterblog">
+                            <title>Get list of possible attribute types</title>
+                        </types>
+                        <create translate="title" module="mageplaza_betterblog">
+                            <title>Create new attribute</title>
+                        </create>
+                        <update translate="title" module="mageplaza_betterblog">
+                            <title>Update attribute</title>
+                        </update>
+                        <remove translate="title" module="mageplaza_betterblog">
+                            <title>Remove attribute</title>
+                        </remove>
+                        <info translate="title" module="mageplaza_betterblog">
+                            <title>Get full information about attribute with list of options</title>
+                        </info>
+                        <addOption translate="title" module="mageplaza_betterblog">
+                            <title>Add option</title>
+                        </addOption>
+                        <removeOption translate="title" module="mageplaza_betterblog">
+                            <title>Remove option</title>
+                        </removeOption>
+                    </post_attribute>
+
+                    <category translate="title" module="mageplaza_betterblog">
+                        <title>Category</title>
+                        <sort_order>10</sort_order>
+                        <list translate="title" module="mageplaza_betterblog">
+                            <title>List</title>
+                        </list>
+                        <info translate="title" module="mageplaza_betterblog">
+                            <title>Info</title>
+                        </info>
+                        <add translate="title" module="mageplaza_betterblog">
+                            <title>Add</title>
+                        </add>
+                        <update translate="title" module="mageplaza_betterblog">
+                            <title>Update</title>
+                        </update>
+                        <remove translate="title" module="mageplaza_betterblog">
+                            <title>Remove</title>
+                        </remove>
+                        <move translate="title" module="mageplaza_betterblog">
+                            <title>Move</title>
+                        </move>
+                    </category>
+                    <tag translate="title" module="mageplaza_betterblog">
+                        <title>Tag</title>
+                        <sort_order>20</sort_order>
+                        <list translate="title" module="mageplaza_betterblog">
+                            <title>List</title>
+                        </list>
+                        <info translate="title" module="mageplaza_betterblog">
+                            <title>Info</title>
+                        </info>
+                        <add translate="title" module="mageplaza_betterblog">
+                            <title>Add</title>
+                        </add>
+                        <update translate="title" module="mageplaza_betterblog">
+                            <title>Update</title>
+                        </update>
+                        <remove translate="title" module="mageplaza_betterblog">
+                            <title>Remove</title>
+                        </remove>
+                    </tag>
+                </mageplaza_betterblog>
+            </resources>
+        </acl>
+    </api>
+</config>

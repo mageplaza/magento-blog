@@ -1,0 +1,41 @@
+<?php 
+/**
+ * Mageplaza_BetterBlog extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category       Mageplaza
+ * @package        Mageplaza_BetterBlog
+ * @copyright      Copyright (c) 2015
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+/**
+ * Tag list template
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_BetterBlog
+ * @author      Sam
+ */
+?>
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<?php $_tags = $this->getTags(); ?>
+<div class="block block-tags">
+    <div class="block-title">
+        <strong><span><?php echo $this->__('Popular Tags'); ?></span></strong>
+    </div>
+    <div class="block-content">
+        <ul class="tags-list">
+            <?php foreach ($this->getTags() as $_tag): ?>
+                <li><a href="<?php echo $_tag->getTaggedProductsUrl() ?>" style="font-size:<?php echo $_tag->getRatio()*70+75 ?>%;"><?php echo $this->escapeHtml($_tag->getName()) ?></a></li>
+            <?php endforeach; ?>
+        </ul>
+        <div class="actions">
+            <a href="<?php echo $this->getUrl('tag/list') ?>"><?php echo $this->__('View All Tags') ?></a>
+        </div>
+    </div>
+</div>

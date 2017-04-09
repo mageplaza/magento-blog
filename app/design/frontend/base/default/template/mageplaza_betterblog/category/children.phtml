@@ -1,0 +1,50 @@
+<?php
+/**
+ * Mageplaza_BetterBlog extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category       Mageplaza
+ * @package        Mageplaza_BetterBlog
+ * @copyright      Copyright (c) 2015
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+/**
+ * Category children list template
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_BetterBlog
+ * @author      Sam
+ */
+?>
+<?php $_categories = $this->getCategories(); ?>
+<?php if ($_categories->getSize() > 0) :?>
+    <div class="page-title category-title">
+        <h2><?php echo $this->getCurrentCategory()->getName(); ?>:<?php echo $this->__('Children')?></h2>
+    </div>
+    <?php if ($this->_getDisplayMode() == 0) : ?>
+        <div class="category-list-container">
+            <?php foreach ($_categories as $_category) : ?>
+                <div class="category-list-item">
+                    <a href="<?php echo $_category->getCategoryUrl();?>" title="<?php echo $this->escapeHtml($_category->getName()) ?>">
+                        <?php echo $_category->getName(); ?>
+                    </a>
+                </div>
+            <?php endforeach;?>
+        </div>
+    <?php else : ?>
+        <ul id="categories-list">
+            <?php foreach ($_categories as $_category) : ?>
+                <?php echo $this->drawCategory($_category);?>
+            <?php endforeach;?>
+        </ul>
+        <script type="text/javascript">
+            betterblogTree('categories-list');
+        </script>
+    <?php endif;?>
+<?php endif;?>

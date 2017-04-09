@@ -1,0 +1,44 @@
+<?php
+/**
+ * Mageplaza_BetterBlog extension
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ *
+ * @category       Mageplaza
+ * @package        Mageplaza_BetterBlog
+ * @copyright      Copyright (c) 2015
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+/**
+ * Post comments list template
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_BetterBlog
+ * @author      Sam
+ */
+?>
+<?php $_post = $this->getPost() ?>
+<?php if ($_post->getAllowComments()) : ?>
+    <div class="box-collateral box-reviews" id="post-reviews">
+        <h2><?php echo $this->__('Comments') ?></h2>
+
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            var disqus_shortname = '<?php echo $this->getDisqusName();?>';
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+
+
+    </div>
+<?php endif; ?>

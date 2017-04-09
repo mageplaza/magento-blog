@@ -1,0 +1,247 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Mageplaza_BetterBlog extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category       Mageplaza
+ * @package        Mageplaza_BetterBlog
+ * @copyright      Copyright (c) 2015
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+-->
+<layout>
+    <default>
+        <reference name="head">
+            <action method="addCss">
+                <js>css/mageplaza_betterblog/style.css</js>
+            </action>
+        </reference>
+
+        <reference name="top.links">
+            <action method="addLink" translate="label title" ifconfig="mageplaza_betterblog/general/toplinks" >
+                <label>Blog</label>
+                <url helper="mageplaza_betterblog/config/getBlogUrl"/>
+                <title>Blog</title>
+                <prepare/>
+                <urlParams/>
+                <position>20</position>
+            </action>
+        </reference>
+
+
+        <reference name="right">
+            <block type="mageplaza_betterblog/sidebar" name="post.list.right" as="post_list_right" before="-">
+                <action method="setTemplate" ifconfig="mageplaza_betterblog/general/sidebar_right">
+                    <template>mageplaza_betterblog/sidebar.phtml</template>
+                </action>
+            </block>
+        </reference>
+
+        <reference name="left">
+            <block type="mageplaza_betterblog/sidebar" name="post.list.left" as="post_list_left" before="-">
+                <action method="setTemplate" ifconfig="mageplaza_betterblog/general/sidebar_left">
+                    <template>mageplaza_betterblog/sidebar.phtml</template>
+                </action>
+            </block>
+        </reference>
+
+
+        <reference name="footer_links">
+
+            <action method="addLink" translate="label title" ifconfig="mageplaza_betterblog/general/footer">
+                <label>Blog</label>
+                <url helper="mageplaza_betterblog/config/getBlogUrl"/>
+                <title>Blog</title>
+                <prepare/>
+                <urlParams/>
+                <position>120</position>
+            </action>
+        </reference>
+
+        <reference name="footer" >
+            <!--<remove name="mp-copyright" />-->
+            <block type="core/template" name="mp-copyright" template="mageplaza_betterblog/blog/copyright.phtml" />
+        </reference>
+
+    </default>
+    <customer_account>
+        <reference name="customer_account_navigation">
+            <action method="addLink" translate="label" module="mageplaza_betterblog">
+                <name>post_comments</name>
+                <path>mageplaza_betterblog/post_customer_comment</path>
+                <label>Posts Comments</label>
+            </action>
+        </reference>
+    </customer_account>
+
+    <frontend_better_blog>
+        <reference name="footer">
+            <!--<block type="mageplaza_betterblog/frontend" template="mageplaza_betterblog/blog/footer.phtml" />-->
+        </reference>
+    </frontend_better_blog>
+
+
+    <mageplaza_betterblog_post_index translate="label" module="mageplaza_betterblog">
+        <label>Posts list</label>
+        <update handle="page_two_columns_right"/>
+        <reference name="content">
+            <block type="mageplaza_betterblog/post_list" name="post_list"
+                   template="mageplaza_betterblog/post/list.phtml"/>
+            <block type="mageplaza_betterblog/frontend" template="mageplaza_betterblog/blog/footer.phtml" />
+        </reference>
+        <update handle="frontend_better_blog"/>
+    </mageplaza_betterblog_post_index>
+
+    <mageplaza_betterblog_index_index translate="label" module="mageplaza_betterblog">
+        <label>Posts list</label>
+        <update handle="page_two_columns_right"/>
+        <reference name="content">
+            <block type="mageplaza_betterblog/post_list" name="post_list"
+                   template="mageplaza_betterblog/post/list.phtml"/>
+            <block type="mageplaza_betterblog/frontend" template="mageplaza_betterblog/blog/footer.phtml" />
+        </reference>
+        <update handle="frontend_better_blog"/>
+    </mageplaza_betterblog_index_index>
+
+
+    <mageplaza_betterblog_tag_index translate="label" module="mageplaza_betterblog">
+        <label>Tags list</label>
+        <update handle="page_two_columns_left"/>
+        <reference name="content">
+            <block type="mageplaza_betterblog/tag_list" name="tag_list" template="mageplaza_betterblog/tag/list.phtml"/>
+        </reference>
+    </mageplaza_betterblog_tag_index>
+
+
+    <mageplaza_betterblog_post_view translate="label" module="mageplaza_betterblog">
+        <label>Post view page</label>
+        <update handle="page_two_columns_right"/>
+        <reference name="content">
+            <block type="mageplaza_betterblog/post_view" name="post_view"
+                   template="mageplaza_betterblog/post/view.phtml"/>
+
+
+            <block type="mageplaza_betterblog/post_tag_list" name="post.tag_list" as="post_posts"
+                   template="mageplaza_betterblog/post/tag/list.phtml"/>
+
+            <!--=================================================================-->
+            <!-- START COMMENT ENGINE -->
+            <!--=================================================================-->
+
+
+            <block type="mageplaza_betterblog/comment" template="mageplaza_betterblog/comment.phtml" name="blog_comment_type">
+
+                <!--1. Blog comment-->
+                <block type="mageplaza_betterblog/post_comment_list" template="mageplaza_betterblog/post/comment/list.phtml" name="post.comments_list" as="default_comment">
+                    <block type="mageplaza_betterblog/post_comment_form" template="mageplaza_betterblog/post/comment/form.phtml" name="comment_form" as="comment_form" />
+                </block>
+
+                <!--2. Disqus-->
+                <block type="mageplaza_betterblog/post_comment_disqus"  template="mageplaza_betterblog/post/comment/disqus.phtml" name="post.comments_disqus" as="disqus_comment" />
+
+                <!--3. Facebook comment-->
+                <block type="mageplaza_betterblog/post_comment_facebook" template="mageplaza_betterblog/post/comment/facebook.phtml" name="post.comments_facebook" as="facebook_comment" />
+
+
+            </block>
+
+
+            <!--=================================================================-->
+
+            <block type="mageplaza_betterblog/frontend" template="mageplaza_betterblog/blog/footer.phtml" />
+        </reference>
+        <update handle="frontend_better_blog"/>
+    </mageplaza_betterblog_post_view>
+
+
+    <mageplaza_betterblog_category_view translate="label" module="mageplaza_betterblog">
+        <label>Category view page</label>
+        <update handle="page_two_columns_right"/>
+        <reference name="head">
+            <action method="addItem" ifconfig="mageplaza_betterblog/category/tree">
+                <type>skin_js</type>
+                <js>js/mageplaza_betterblog/tree.js</js>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="mageplaza_betterblog/category_view" name="category_view"
+                   template="mageplaza_betterblog/category/view.phtml"/>
+            <!--<block type="mageplaza_betterblog/category_children" name="category_children" template="mageplaza_betterblog/category/children.phtml" />-->
+            <block type="mageplaza_betterblog/category_post_list" name="category.post_list" as="category_categories"
+                   template="mageplaza_betterblog/category/post/list.phtml"/>
+            <block type="mageplaza_betterblog/frontend" template="mageplaza_betterblog/blog/footer.phtml" />
+        </reference>
+        <update handle="frontend_better_blog"/>
+    </mageplaza_betterblog_category_view>
+
+    <mageplaza_betterblog_tag_view translate="label" module="mageplaza_betterblog">
+        <label>Tag view page</label>
+        <update handle="page_two_columns_right"/>
+        <reference name="content">
+            <block type="mageplaza_betterblog/tag_view" name="tag_view" template="mageplaza_betterblog/tag/view.phtml"/>
+            <block type="mageplaza_betterblog/tag_post_list" name="tag.post_list" as="tag_tags"
+                   template="mageplaza_betterblog/tag/post/list.phtml"/>
+        </reference>
+    </mageplaza_betterblog_tag_view>
+
+    <mageplaza_betterblog_post_rss translate="label" module="mageplaza_betterblog">
+        <label>Posts rss feed</label>
+        <block type="mageplaza_betterblog/post_rss" output="toHtml" name="mageplaza_betterblog.post.rss"/>
+    </mageplaza_betterblog_post_rss>
+
+    <mageplaza_betterblog_category_rss translate="label" module="mageplaza_betterblog">
+        <label>Categories rss feed</label>
+        <block type="mageplaza_betterblog/category_rss" output="toHtml" name="mageplaza_betterblog.category.rss"/>
+    </mageplaza_betterblog_category_rss>
+
+    <mageplaza_betterblog_tag_rss translate="label" module="mageplaza_betterblog">
+        <label>Tags rss feed</label>
+        <block type="mageplaza_betterblog/tag_rss" output="toHtml" name="mageplaza_betterblog.tag.rss"/>
+    </mageplaza_betterblog_tag_rss>
+    <rss_index_index>
+        <reference name="content">
+            <block type="mageplaza_betterblog/rss" name="betterblog.rss" template="mageplaza_betterblog/rss.phtml">
+                <action method="addFeed" ifconfig="mageplaza_betterblog/post/rss" translate="label"
+                        module="mageplaza_betterblog">
+                    <label>Posts</label>
+                    <url helper="mageplaza_betterblog/post/getRssUrl"/>
+                </action>
+                <action method="addFeed" ifconfig="mageplaza_betterblog/category/rss" translate="label"
+                        module="mageplaza_betterblog">
+                    <label>Categories</label>
+                    <url helper="mageplaza_betterblog/category/getRssUrl"/>
+                </action>
+                <action method="addFeed" ifconfig="mageplaza_betterblog/tag/rss" translate="label"
+                        module="mageplaza_betterblog">
+                    <label>Tags</label>
+                    <url helper="mageplaza_betterblog/tag/getRssUrl"/>
+                </action>
+            </block>
+        </reference>
+    </rss_index_index>
+
+    <mageplaza_betterblog_post_customer_comment_index translate="label" module="mageplaza_betterblog">
+        <label>My Posts comments</label>
+        <update handle="customer_account"/>
+        <reference name="my.account.wrapper">
+            <block type="mageplaza_betterblog/post_customer_comment_list" name="customer_post_comments"
+                   template="mageplaza_betterblog/post/customer/comment/list.phtml"/>
+        </reference>
+    </mageplaza_betterblog_post_customer_comment_index>
+
+    <mageplaza_betterblog_post_customer_comment_view translate="label" module="mageplaza_betterblog">
+        <label>My Posts comment view</label>
+        <update handle="customer_account"/>
+        <reference name="my.account.wrapper">
+            <block type="mageplaza_betterblog/post_customer_comment_view" name="customer_post_comment"
+                   template="mageplaza_betterblog/post/customer/comment/view.phtml"/>
+        </reference>
+    </mageplaza_betterblog_post_customer_comment_view>
+</layout>

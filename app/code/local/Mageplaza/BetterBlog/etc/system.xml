@@ -1,0 +1,620 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Mageplaza_BetterBlog extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category       Mageplaza
+ * @package        Mageplaza_BetterBlog
+ * @copyright      Copyright (c) 2015
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ *
+ *
+ * ===================================================================================
+ *   INCLUDE THIS EXTENSION TO YOUR THEMES, PLEASE CONTACT ME AT harrytpps@gmail.com
+ * ===================================================================================
+ *
+ *
+ */
+-->
+<config>
+    <tabs>
+        <mageplaza translate="label" module="mageplaza_betterblog">
+            <label>Mageplaza</label>
+            <sort_order>1</sort_order>
+        </mageplaza>
+    </tabs>
+    <sections>
+        <mageplaza_betterblog translate="label" module="mageplaza_betterblog">
+            <class>separator-top</class>
+            <label>Better Blog</label>
+            <tab>mageplaza</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>100</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+
+                <general translate="label comment">
+                    <label>General</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>0</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+
+                        <notification translate="label comment">
+                            <label>
+                                <![CDATA[
+                                        * <a href="https://mageplaza.freshdesk.com/support/solutions/folders/6000213306" target="_blank">User Guide</a> <br>
+                                        * <a href="https://mageplaza.freshdesk.com/support/discussions/topics/new?forum_id=6000240988" target="_blank">Report a problem</a> <br>
+                                        * Your default blog URL <strong>domain.com/blog/</strong> <br>
+                                        * Atom Feed <strong>domain.com/blog/post/rss/</strong> <br>
+                                        * Sitemap <strong>domain.com/sitemap/blog.xml</strong> <br>
+                                        ]]>
+                            </label>
+                            <frontend_type>label</frontend_type>
+                            <frontend_model>mageplaza_betterblog/adminhtml_betterblog_renderer_fieldset_notification
+                            </frontend_model>
+                            <margin_top>0px</margin_top>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment></comment>
+                        </notification>
+
+                        <compatible translate="label comment">
+                            <label>
+                                Compatible with
+                            </label>
+                            <frontend_type>label</frontend_type>
+                            <frontend_model>mageplaza_betterblog/adminhtml_renderer_field</frontend_model>
+                            <margin_top>0px</margin_top>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>
+                                <![CDATA[
+                                        <a href="https://www.magecheckout.com/?utm_source=mageplaza&utm_medium=free%20extensions&utm_campaign=documentation" target="_blank">Magecheckout</a> extensions <br>
+                                        ]]>
+
+                            </comment>
+                        </compatible>
+
+
+                        <name translate="label comment">
+                            <label>Blog name</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Blog name</comment>
+                        </name>
+
+
+                        <toplinks translate="label">
+                            <label>Show Blog Link in Top links</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </toplinks>
+
+                        <footer translate="label">
+                            <label>Show Blog Link in Footer Links</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>11</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </footer>
+
+
+                        <sidebar_right translate="label">
+                            <label>Show Sidebar Right</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>15</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </sidebar_right>
+
+
+                        <sidebar_left translate="label">
+                            <label>Show Sidebar Left</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>16</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </sidebar_left>
+
+                        <!--<tag_limit translate="label">-->
+                        <!--<label>Number of tags to display</label>-->
+                        <!--<frontend_type>text</frontend_type>-->
+                        <!--<sort_order>20</sort_order>-->
+                        <!--<show_in_default>1</show_in_default>-->
+                        <!--<show_in_website>1</show_in_website>-->
+                        <!--<show_in_store>1</show_in_store>-->
+                        <!--<comment>Default: 10</comment>-->
+                        <!--</tag_limit>-->
+
+
+                    </fields>
+
+                </general>
+
+                <post translate="label" module="mageplaza_betterblog">
+                    <label>Post</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <breadcrumbs translate="label">
+                            <label>Use Breadcrumbs</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </breadcrumbs>
+                        <!--<url_rewrite_list translate="label comment">-->
+                        <!--<label>URL key for list page</label>-->
+                        <!--<frontend_type>text</frontend_type>-->
+                        <!--<sort_order>20</sort_order>-->
+                        <!--<show_in_default>1</show_in_default>-->
+                        <!--<show_in_website>1</show_in_website>-->
+                        <!--<show_in_store>1</show_in_store>-->
+                        <!--<comment>Leave empty to use default URL module/controller/action. Default URL: posts</comment>-->
+                        <!--</url_rewrite_list>-->
+                        <url_prefix translate="label comment">
+                            <label>URL prefix</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Leave empty for no prefix. Default: blog</comment>
+                        </url_prefix>
+                        <url_suffix translate="label comment">
+                            <label>Url suffix</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>What goes after the dot. Leave empty for no suffix. Default: html</comment>
+                        </url_suffix>
+
+                        <number_recent_posts translate="label comment">
+                            <label>Number of recent posts</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>41</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Default: 5</comment>
+                        </number_recent_posts>
+
+                        <allow_comment translate="label">
+                            <label>Allow comments</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </allow_comment>
+                        <allow_guest_comment translate="label">
+                            <label>Allow guest comments</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <allow_comment>1</allow_comment>
+                            </depends>
+                        </allow_guest_comment>
+
+                        <show_post_same_category translate="label">
+                            <label>Display posts in same category</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>65</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>After post content, it will show recent posts in same category</comment>
+                        </show_post_same_category>
+
+                        <post_same_category_count translate="label">
+                            <label>Meta title for posts list page</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>66</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <show_post_same_category>1</show_post_same_category>
+                            </depends>
+                        </post_same_category_count>
+
+
+
+
+                        <rss translate="label">
+                            <label>Enable rss</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </rss>
+                        <meta_title translate="label">
+                            <label>Meta title for posts list page</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </meta_title>
+                        <meta_description translate="label">
+                            <label>Meta description for posts list page</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </meta_description>
+                        <meta_keywords translate="label">
+                            <label>Meta keywords for posts list page</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </meta_keywords>
+                    </fields>
+                </post>
+
+                <comment translate="label" module="mageplaza_betterblog">
+                    <label>Comments</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>5</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <type translate="label">
+                            <label>Comment Form</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>mageplaza_betterblog/adminhtml_source_commenttype</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[
+                            Select Comment engine: Default, <a href="https://developers.facebook.com/docs/plugins/comments">Facebook</a>, <a href="https://disqus.com/admin/create/" target="_blank">Disqus</a> comment. <br>
+
+                            ]]></comment>
+                        </type>
+                        <disqus>
+                            <label>Disqus unique name</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>
+                                <![CDATA[Create at <a href="https://disqus.com/admin/create/" target="_blank">Disqus</a>]]></comment>
+                            <depends>
+                                <type>disqus</type>
+                            </depends>
+                        </disqus>
+
+                        <facebook_appid>
+                            <label>Facebook: AppID</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>
+                                <![CDATA[Regiter AppID <a href="https://developers.facebook.com/apps/" target="_blank">here</a>]]></comment>
+                            <depends>
+                                <type>facebook</type>
+                            </depends>
+                        </facebook_appid>
+
+                        <facebook_number_comment>
+                            <label>Facebook: Number of comment</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>31</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>
+                                <![CDATA[The number of comments to show by default. The minimum value is 1.]]></comment>
+                            <depends>
+                                <type>facebook</type>
+                            </depends>
+                        </facebook_number_comment>
+
+                        <facebook_colorscheme>
+                            <label>Facebook: Color scheme</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>mageplaza_betterblog/adminhtml_source_comment_facebook_colorscheme
+                            </source_model>
+                            <sort_order>32</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>
+                                <![CDATA[Light/Dark]]></comment>
+                            <depends>
+                                <type>facebook</type>
+                            </depends>
+                        </facebook_colorscheme>
+
+                        <facebook_order_by>
+                            <label>Facebook: Order by</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>mageplaza_betterblog/adminhtml_source_comment_facebook_orderby</source_model>
+                            <sort_order>32</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>
+                                <![CDATA[The order to use when displaying comments. Can be "social", "reverse_time", or "time".]]></comment>
+                            <depends>
+                                <type>facebook</type>
+                            </depends>
+                        </facebook_order_by>
+
+
+                    </fields>
+                </comment>
+
+                <category translate="label" module="mageplaza_betterblog">
+                    <label>Category</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <breadcrumbs translate="label">
+                            <label>Use Breadcrumbs</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </breadcrumbs>
+                        <url_prefix translate="label comment">
+                            <label>URL prefix</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Leave empty for no prefix</comment>
+                        </url_prefix>
+                        <url_suffix translate="label comment">
+                            <label>Url suffix</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>What goes after the dot. Leave empty for no suffix.</comment>
+                        </url_suffix>
+                    </fields>
+                </category>
+                <tag translate="label" module="mageplaza_betterblog">
+                    <label>Tags</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>20</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <breadcrumbs translate="label">
+                            <label>Use Breadcrumbs</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </breadcrumbs>
+                        <url_prefix translate="label comment">
+                            <label>URL prefix</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Leave empty for no prefix</comment>
+                        </url_prefix>
+                        <url_suffix translate="label comment">
+                            <label>Url suffix</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>What goes after the dot. Leave empty for no suffix.</comment>
+                        </url_suffix>
+                    </fields>
+                </tag>
+
+
+                <sidebar translate="label" module="mageplaza_betterblog">
+                    <label>Sidebar</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>30</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+
+                        <enable_mostview translate="label">
+                            <label>Enable Most Views Widget</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enable_mostview>
+
+                        <number_mostview_posts translate="label comment">
+                            <label>Number of most view posts</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>11</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Default: 5</comment>
+                            <depends>
+                                <enable_mostview>1</enable_mostview>
+                            </depends>
+                        </number_mostview_posts>
+
+                        <enable_comment_widget translate="label">
+                            <label>Enable Comment Widget</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>If you want to show recent comments, you should choose Comment Form is Default Comment Form. It cannot show Facebook, Disqus comment.</comment>
+                        </enable_comment_widget>
+
+                        <number_comment translate="label comment">
+                            <label>Number of comemnts</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>22</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Default: 5</comment>
+                            <depends>
+                                <enable_comment_widget>1</enable_comment_widget>
+                            </depends>
+                        </number_comment>
+
+
+                    </fields>
+                </sidebar>
+
+
+                <sitemap translate="label" module="mageplaza_betterblog">
+                    <label>Custom Sitemap</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>40</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+
+                        <generate translate="label">
+                            <label>Generate Blog Sitemap (Optional)</label>
+                            <frontend_model>mageplaza_betterblog/adminhtml_system_config_sitemap</frontend_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </generate>
+
+
+                    </fields>
+                </sitemap>
+
+
+                <!--<advanced translate="label" module="mageplaza_betterblog">-->
+                    <!--<label>Advanced Configuration</label>-->
+                    <!--<frontend_type>text</frontend_type>-->
+                    <!--<sort_order>50</sort_order>-->
+                    <!--<show_in_default>1</show_in_default>-->
+                    <!--<show_in_website>1</show_in_website>-->
+                    <!--<show_in_store>1</show_in_store>-->
+                    <!--<fields>-->
+
+                        <!--<override_cateogry translate="label">-->
+                            <!--<label>Override Categories</label>-->
+                            <!--<frontend_type>select</frontend_type>-->
+                            <!--<source_model>adminhtml/system_config_source_yesno</source_model>-->
+                            <!--<sort_order>10</sort_order>-->
+                            <!--<show_in_default>1</show_in_default>-->
+                            <!--<show_in_website>1</show_in_website>-->
+                            <!--<show_in_store>1</show_in_store>-->
+                            <!--<comment>Save this option before importing</comment>-->
+                        <!--</override_cateogry>-->
+
+                        <!--<override_tag translate="label">-->
+                            <!--<label>Override Tags</label>-->
+                            <!--<frontend_type>select</frontend_type>-->
+                            <!--<source_model>adminhtml/system_config_source_yesno</source_model>-->
+                            <!--<sort_order>11</sort_order>-->
+                            <!--<show_in_default>1</show_in_default>-->
+                            <!--<show_in_website>1</show_in_website>-->
+                            <!--<show_in_store>1</show_in_store>-->
+                            <!--<comment>Save this option before importing</comment>-->
+
+                        <!--</override_tag>-->
+
+                        <!--<override_post translate="label">-->
+                            <!--<label>Override Posts</label>-->
+                            <!--<frontend_type>select</frontend_type>-->
+                            <!--<source_model>adminhtml/system_config_source_yesno</source_model>-->
+                            <!--<sort_order>12</sort_order>-->
+                            <!--<show_in_default>1</show_in_default>-->
+                            <!--<show_in_website>1</show_in_website>-->
+                            <!--<show_in_store>1</show_in_store>-->
+                            <!--<comment>Save this option before importing</comment>-->
+                        <!--</override_post>-->
+
+
+                        <!--<aw translate="label">-->
+                            <!--<label>Import from AW Blog</label>-->
+                            <!--<frontend_model>mageplaza_betterblog/adminhtml_system_config_import_aw</frontend_model>-->
+                            <!--<sort_order>20</sort_order>-->
+                            <!--<show_in_default>1</show_in_default>-->
+                            <!--<show_in_website>0</show_in_website>-->
+                            <!--<show_in_store>0</show_in_store>-->
+
+                        <!--</aw>-->
+
+
+                    <!--</fields>-->
+                <!--</advanced>-->
+            </groups>
+        </mageplaza_betterblog>
+    </sections>
+</config>

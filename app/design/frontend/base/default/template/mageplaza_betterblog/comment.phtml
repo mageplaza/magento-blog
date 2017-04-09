@@ -1,0 +1,20 @@
+<?php
+$type = $this->getCommentType();
+switch($type){
+    case 'default':
+        echo $this->getChildHtml('default_comment');
+        break;
+
+    case 'facebook':
+        echo $this->getChildHtml('facebook_comment');
+        break;
+
+    case 'disqus':
+        echo $this->getChildHtml('disqus_comment');
+        break;
+
+    default:
+        echo $this->__('Comment form has been disabled.');
+        break;
+
+}

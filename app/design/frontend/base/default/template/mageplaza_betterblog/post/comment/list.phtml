@@ -1,0 +1,46 @@
+<?php
+/**
+ * Mageplaza_BetterBlog extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category       Mageplaza
+ * @package        Mageplaza_BetterBlog
+ * @copyright      Copyright (c) 2015
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+/**
+ * Post comments list template
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_BetterBlog
+ * @author      Sam
+ */
+?>
+<?php $_post = $this->getPost()?>
+<?php if ($_post->getAllowComments()) : ?>
+    <?php $_comments = $this->getComments(); ?>
+    <?php if (count($_comments)) : ?>
+        <div class="box-collateral box-reviews" id="post-reviews">
+            <h2><?php echo $this->__('Comments') ?></h2>
+            <dl>
+                <?php foreach ($_comments as $_comment):?>
+                <dt>
+                    <div class="author"><?php echo $this->__('On %s %s wrote:', $this->formatDate($_comment->getCreatedAt(), 'long'), $this->escapeHtml($_comment->getName()))?></div>
+                    <strong><?php echo $this->escapeHtml($_comment->getTitle()) ?></strong>
+                </dt>
+                <dd>
+                    <?php echo nl2br($this->escapeHtml($_comment->getComment())) ?>
+                </dd>
+                <?php endforeach; ?>
+            </dl>
+            <?php echo $this->getPagerHtml() ?>
+        </div>
+    <?php endif;?>
+    <?php echo $this->getChildHtml('comment_form') ?>
+<?php endif;?>

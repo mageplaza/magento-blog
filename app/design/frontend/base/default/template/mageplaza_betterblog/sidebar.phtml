@@ -1,0 +1,92 @@
+<?php $posts = $this->getPosts();?>
+<div class="block">
+    <div class="block-title">
+        <strong><span><?php echo $this->__('Recent posts'); ?></span></strong>
+    </div>
+    <div class="block-content">
+        <ul>
+            <?php foreach ($posts as $post): ?>
+                <li><a href="<?php echo $post->getPostUrl(); ?>"><?php echo $post->getPostTitle(); ?></a></li>
+            <?php endforeach; ?>
+        </ul>
+
+    </div>
+</div>
+
+<?php $mostviews = $this->getMostviews(); ?>
+<?php if(!is_null($mostviews) AND $mostviews->getSize() > 0):?>
+<div class="block">
+    <div class="block-title">
+        <strong><span><?php echo $this->__('Most Views'); ?></span></strong>
+    </div>
+    <div class="block-content">
+        <ul>
+            <?php foreach ($mostviews as $post): ?>
+                <li><a href="<?php echo $post->getPostUrl(); ?>"><?php echo $post->getPostTitle(); ?></a></li>
+            <?php endforeach; ?>
+        </ul>
+
+    </div>
+</div>
+<?php endif;?>
+
+
+
+<?php $_categories = $this->getCategories(); ?>
+<?php if ($_categories->getSize() > 0) : ?>
+    <div class="block">
+        <div class="block-title">
+            <strong><span><?php echo Mage::helper('mageplaza_betterblog')->__('Categories') ?></span></strong>
+        </div>
+        <div class="block-content categories-list-container">
+            <ul>
+                <?php foreach ($_categories as $_category) : ?>
+                    <li class="category-list-item">
+                        <a href="<?php echo $_category->getCategoryUrl() ?>">
+                            <?php echo $_category->getName(); ?>
+                        </a>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+
+        </div>
+    </div>
+<?php endif; ?>
+
+
+<?php $_tags = $this->getTags(); ?>
+<?php if ($_tags->getSize() > 0) : ?>
+    <div class="block">
+        <div class="block-title">
+            <strong><span><?php echo Mage::helper('mageplaza_betterblog')->__('Tags') ?></span></strong>
+        </div>
+        <div class="block-content tags-list-container">
+            <?php foreach ($_tags as $_tag) : ?>
+                <div class="tag-list-item">
+                    <a href="<?php echo $_tag->getTagUrl() ?>">
+                        <?php echo $_tag->getName(); ?>
+                    </a>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+<?php endif; ?>
+
+
+<?php $comments = $this->getComments();  ?>
+<?php if(!is_null($comments) AND $comments->getSize() > 0):?>
+    <div class="block">
+        <div class="block-title">
+            <strong><span><?php echo $this->__('Recent Comments'); ?></span></strong>
+        </div>
+        <div class="block-content">
+            <ul>
+                <?php foreach ($comments as $_comment): ?>
+                    <li><a href="<?php echo $_comment->getPostUrl(); ?>"><?php echo $this->escapeHtml($_comment->getTitle()); ?></a>
+                        by <span class="comment-author"><?php echo $this->escapeHtml($_comment->getName());?></span></li>
+                <?php endforeach; ?>
+            </ul>
+
+        </div>
+    </div>
+<?php endif;?>

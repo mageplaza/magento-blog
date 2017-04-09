@@ -1,0 +1,14 @@
+<?php $posts = $this->getPosts(); ?>
+<div class="block">
+    <div class="block-title">
+        <strong><span><?php echo $this->__('Recent posts');?></span></strong>
+    </div>
+    <div class="block-content">
+        <ul>
+            <?php foreach ($posts as $post): ?>
+                <li><a href="<?php echo $post->getPostUrl(); ?>"><?php echo $post->getPostTitle(); ?></a></li>
+            <?php endforeach; ?>
+        </ul>
+
+    </div>
+</div>

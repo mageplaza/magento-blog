@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Mageplaza_BetterBlog extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category       Mageplaza
+ * @package        Mageplaza_BetterBlog
+ * @copyright      Copyright (c) 2015
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+-->
+<config>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <mageplaza_betterblog translate="title" module="mageplaza_betterblog">
+                                        <title>Better Blog</title>
+                                    </mageplaza_betterblog>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                    <mageplaza_betterblog translate="title" module="mageplaza_betterblog">
+                        <title>Blog</title>
+                        <children>
+                            <new translate="title" module="mageplaza_betterblog">
+                                <title>Add New</title>
+                                <action>adminhtml/betterblog_post/new</action>
+                                <sort_order>0</sort_order>
+                            </new>
+                            <post translate="title" module="mageplaza_betterblog">
+                                <title>Manage Posts</title>
+                                <sort_order>2</sort_order>
+                            </post>
+                            <post_attributes translate="title" module="mageplaza_betterblog">
+                                <title>Manage Post attributes</title>
+                                <sort_order>7</sort_order>
+                            </post_attributes>
+                            <post_comments translate="title" module="mageplaza_betterblog">
+                                <title>Manage Comments</title>
+                                <sort_order>5</sort_order>
+                            </post_comments>
+
+                            <category translate="title" module="mageplaza_betterblog">
+                                <title>Manage Categories</title>
+                                <sort_order>10</sort_order>
+                            </category>
+                            <tag translate="title" module="mageplaza_betterblog">
+                                <title>Manage Tags</title>
+                                <sort_order>20</sort_order>
+                            </tag>
+                        </children>
+                    </mageplaza_betterblog>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+    <menu>
+        <mageplaza_betterblog translate="title" module="mageplaza_betterblog">
+            <title>Blog</title>
+            <sort_order>65</sort_order>
+            <children>
+                <new translate="title" module="mageplaza_betterblog">
+                    <title>Add New</title>
+                    <action>adminhtml/betterblog_post/new</action>
+                    <sort_order>0</sort_order>
+                </new>
+                <post translate="title" module="mageplaza_betterblog">
+                    <title>Manage Posts</title>
+                    <action>adminhtml/betterblog_post/index</action>
+                    <sort_order>2</sort_order>
+                </post>
+                <post_comments translate="title" module="mageplaza_betterblog">
+                    <title>Manage Comments</title>
+                    <action>adminhtml/betterblog_post_comment</action>
+                    <sort_order>4</sort_order>
+                </post_comments>
+                <post_attributes translate="title" module="mageplaza_betterblog">
+                    <title>Post Attributes</title>
+                    <action>adminhtml/betterblog_post_attribute</action>
+                    <sort_order>7</sort_order>
+                </post_attributes>
+                <category translate="title" module="mageplaza_betterblog">
+                    <title>Manage Categories</title>
+                    <action>adminhtml/betterblog_category</action>
+                    <sort_order>10</sort_order>
+                </category>
+                <tag translate="title" module="mageplaza_betterblog">
+                    <title>Manage Tags</title>
+                    <action>adminhtml/betterblog_tag</action>
+                    <sort_order>20</sort_order>
+                </tag>
+                <settings module="mageplaza_betterblog" translate="title">
+                    <title>Settings</title>
+                    <sort_order>1000</sort_order>
+                    <action>adminhtml/system_config/edit/section/mageplaza_betterblog</action>
+                </settings>
+
+            </children>
+        </mageplaza_betterblog>
+    </menu>
+</config>

@@ -1,0 +1,207 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Mageplaza_BetterBlog extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category       Mageplaza
+ * @package        Mageplaza_BetterBlog
+ * @copyright      Copyright (c) 2015
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+-->
+<config>
+    <api2>
+        <resource_groups>
+            <mageplaza_betterblog translate="title" module="mageplaza_betterblog">
+                <title>BetterBlog</title>
+                <sort_order>120</sort_order>
+                <children>
+                    <mageplaza_betterblog_post translate="title" module="mageplaza_betterblog">
+                        <title>Post</title>
+                        <sort_order>0</sort_order>
+                    </mageplaza_betterblog_post>
+                    <mageplaza_betterblog_category translate="title" module="mageplaza_betterblog">
+                        <title>Category</title>
+                        <sort_order>10</sort_order>
+                    </mageplaza_betterblog_category>
+                    <mageplaza_betterblog_tag translate="title" module="mageplaza_betterblog">
+                        <title>Tag</title>
+                        <sort_order>20</sort_order>
+                    </mageplaza_betterblog_tag>
+
+                </children>
+            </mageplaza_betterblog>
+        </resource_groups>
+        <resources>
+            <mageplaza_betterblog_post translate="title" module="mageplaza_betterblog">
+                <group>mageplaza_betterblog_post</group>
+                <model>mageplaza_betterblog/api2_post</model>
+                <working_model>mageplaza_betterblog/post</working_model>
+                <title>Post</title>
+                <sort_order>0</sort_order>
+                <privileges>
+                    <admin>
+                        <create>1</create>
+                        <retrieve>1</retrieve>
+                        <update>1</update>
+                        <delete>1</delete>
+                    </admin>
+                    <customer>
+                        <retrieve>1</retrieve>
+                    </customer>
+                    <guest>
+                        <retrieve>1</retrieve>
+                    </guest>
+                </privileges>
+                <attributes translate="entity_id post_title post_excerpt post_content image status url_key in_rss meta_title meta_keywords meta_description allow_comment" module="mageplaza_betterblog">
+                    <entity_id>Id</entity_id>
+                    <post_title>Name</post_title>
+                    <post_excerpt>Short Description</post_excerpt>
+                    <post_content>Content</post_content>
+                    <image>Image</image>
+                    <status>Enabled</status>
+                    <url_key>URL key</url_key>
+                    <in_rss>In RSS</in_rss>
+                    <meta_title>Meta title</meta_title>
+                    <meta_keywords>Meta keywords</meta_keywords>
+                    <meta_description>Meta description</meta_description>
+                    <allow_comment>Allow Comment</allow_comment>
+                </attributes>
+                <routes>
+                    <route_entity>
+                        <route>/betterblog_posts/:id</route>
+                        <action_type>entity</action_type>
+                    </route_entity>
+                    <route_entity_with_store>
+                        <route>/betterblog_posts/:id/store/:store</route>
+                        <action_type>entity</action_type>
+                    </route_entity_with_store>
+                    <route_collection>
+                        <route>/betterblog_posts</route>
+                        <action_type>collection</action_type>
+                    </route_collection>
+                    <route_collection_with_store>
+                        <route>/betterblog_posts/store/:store</route>
+                        <action_type>collection</action_type>
+                    </route_collection_with_store>
+                </routes>
+                <versions>1</versions>
+            </mageplaza_betterblog_post>
+            <mageplaza_betterblog_category translate="title" module="mageplaza_betterblog">
+                <group>mageplaza_betterblog_category</group>
+                <model>mageplaza_betterblog/api2_category</model>
+                <working_model>mageplaza_betterblog/category</working_model>
+                <title>Category</title>
+                <sort_order>10</sort_order>
+                <privileges>
+                    <admin>
+                        <create>1</create>
+                        <retrieve>1</retrieve>
+                        <update>1</update>
+                        <delete>1</delete>
+                    </admin>
+                    <customer>
+                        <retrieve>1</retrieve>
+                    </customer>
+                    <guest>
+                        <retrieve>1</retrieve>
+                    </guest>
+                </privileges>
+                <attributes translate="entity_id name description status url_key parent_id path position level children_count in_rss meta_title meta_keywords meta_description" module="mageplaza_betterblog">
+                    <entity_id>Id</entity_id>
+                    <name>Name</name>
+                    <description>Description</description>
+                    <status>Enabled</status>
+                    <url_key>URL key</url_key>
+                    <parent_id>Parent id</parent_id>
+                    <path>Path</path>
+                    <position>Position</position>
+                    <level>Level</level>
+                    <children_count>Children count</children_count>
+                    <in_rss>In RSS</in_rss>
+                    <meta_title>Meta title</meta_title>
+                    <meta_keywords>Meta keywords</meta_keywords>
+                    <meta_description>Meta description</meta_description>
+                </attributes>
+                <routes>
+                    <route_entity>
+                        <route>/betterblog_categories/:id</route>
+                        <action_type>entity</action_type>
+                    </route_entity>
+                    <route_entity_with_store>
+                        <route>/betterblog_categories/:id/store/:store</route>
+                        <action_type>entity</action_type>
+                    </route_entity_with_store>
+                    <route_collection>
+                        <route>/betterblog_categories</route>
+                        <action_type>collection</action_type>
+                    </route_collection>
+                    <route_collection_with_store>
+                        <route>/betterblog_categories/store/:store</route>
+                        <action_type>collection</action_type>
+                    </route_collection_with_store>
+                </routes>
+                <versions>1</versions>
+            </mageplaza_betterblog_category>
+            <mageplaza_betterblog_tag translate="title" module="mageplaza_betterblog">
+                <group>mageplaza_betterblog_tag</group>
+                <model>mageplaza_betterblog/api2_tag</model>
+                <working_model>mageplaza_betterblog/tag</working_model>
+                <title>Tag</title>
+                <sort_order>20</sort_order>
+                <privileges>
+                    <admin>
+                        <create>1</create>
+                        <retrieve>1</retrieve>
+                        <update>1</update>
+                        <delete>1</delete>
+                    </admin>
+                    <customer>
+                        <retrieve>1</retrieve>
+                    </customer>
+                    <guest>
+                        <retrieve>1</retrieve>
+                    </guest>
+                </privileges>
+                <attributes translate="entity_id name description status url_key in_rss meta_title meta_keywords meta_description" module="mageplaza_betterblog">
+                    <entity_id>Id</entity_id>
+                    <name>Name</name>
+                    <description>Description</description>
+                    <status>Enabled</status>
+                    <url_key>URL key</url_key>
+                    <in_rss>In RSS</in_rss>
+                    <meta_title>Meta title</meta_title>
+                    <meta_keywords>Meta keywords</meta_keywords>
+                    <meta_description>Meta description</meta_description>
+                </attributes>
+                <routes>
+                    <route_entity>
+                        <route>/betterblog_tags/:id</route>
+                        <action_type>entity</action_type>
+                    </route_entity>
+                    <route_entity_with_store>
+                        <route>/betterblog_tags/:id/store/:store</route>
+                        <action_type>entity</action_type>
+                    </route_entity_with_store>
+                    <route_collection>
+                        <route>/betterblog_tags</route>
+                        <action_type>collection</action_type>
+                    </route_collection>
+                    <route_collection_with_store>
+                        <route>/betterblog_tags/store/:store</route>
+                        <action_type>collection</action_type>
+                    </route_collection_with_store>
+                </routes>
+                <versions>1</versions>
+            </mageplaza_betterblog_tag>
+
+        </resources>
+    </api2>
+</config>

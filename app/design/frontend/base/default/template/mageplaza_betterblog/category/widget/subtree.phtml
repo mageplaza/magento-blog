@@ -1,0 +1,36 @@
+<?php
+/**
+ * Mageplaza_BetterBlog extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category       Mageplaza
+ * @package        Mageplaza_BetterBlog
+ * @copyright      Copyright (c) 2015
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+/**
+ * Category subtree template
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_BetterBlog
+ * @author      Sam
+ */
+?>
+<?php $_categories = $this->getCategories(); ?>
+<?php if ($_categories->getSize() > 0) :?>
+    <script type="text/javascript" src="<?php echo $this->getSkinUrl('js/mageplaza_betterblog/tree.js')?>"></script>
+    <ul id="<?php echo $this->getUniqueId()?>">
+        <?php foreach ($_categories as $_category) : ?>
+            <?php echo $this->drawCategory($_category);?>
+        <?php endforeach;?>
+    </ul>
+    <script type="text/javascript">
+        betterblogTree('<?php echo $this->getUniqueId()?>');
+    </script>
+<?php endif;?>

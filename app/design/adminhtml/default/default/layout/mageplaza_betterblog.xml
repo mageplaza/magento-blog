@@ -1,0 +1,205 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Mageplaza_BetterBlog extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category       Mageplaza
+ * @package        Mageplaza_BetterBlog
+ * @copyright      Copyright (c) 2015
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+--> 
+<layout>
+    <adminhtml_betterblog_post_index>
+        <reference name="menu">
+            <action method="setActive">
+                <menupath>mageplaza_betterblog/post</menupath>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="mageplaza_betterblog/adminhtml_post" name="post">
+                <block type="adminhtml/store_switcher" name="store_switcher" as="store_switcher">
+                    <action method="setUseConfirm"><params>0</params></action>
+                </block>
+            </block>
+
+        </reference>
+    </adminhtml_betterblog_post_index>
+    <adminhtml_betterblog_post_grid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="mageplaza_betterblog/adminhtml_post_grid" name="post_grid"/>
+        </block>
+    </adminhtml_betterblog_post_grid>
+    <!-- Post add/edit action -->
+    <adminhtml_betterblog_post_edit>
+        <update handle="editor"/>
+        <reference name="menu">
+            <action method="setActive">
+                <menupath>mageplaza_betterblog/post</menupath>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="mageplaza_betterblog/adminhtml_post_edit" name="post_edit"></block>
+        </reference>
+        <reference name="left">
+            <block type="adminhtml/store_switcher" name="store_switcher" before="-"></block>
+            <block type="mageplaza_betterblog/adminhtml_post_edit_tabs" name="post_tabs"></block>
+        </reference>
+        <reference name="head">
+            <action method="setCanLoadTinyMce"><load>1</load></action>
+        </reference>
+        <reference name="js">
+            <block type="core/template" name="catalog.wysiwyg.js" template="catalog/wysiwyg/js.phtml"/>
+        </reference>
+    </adminhtml_betterblog_post_edit>
+
+    <adminhtml_betterblog_tag_index>
+        <reference name="menu">
+            <action method="setActive">
+                <menupath>mageplaza_betterblog/tag</menupath>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="mageplaza_betterblog/adminhtml_tag" name="tag" />
+
+        </reference>
+    </adminhtml_betterblog_tag_index>
+    <adminhtml_betterblog_tag_grid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="mageplaza_betterblog/adminhtml_tag_grid" name="tag_grid"/>
+        </block>
+    </adminhtml_betterblog_tag_grid>
+    <!-- Tag add/edit action -->
+    <adminhtml_betterblog_tag_edit>
+        <update handle="editor"/>
+        <reference name="menu">
+            <action method="setActive">
+                <menupath>mageplaza_betterblog/tag</menupath>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="mageplaza_betterblog/adminhtml_tag_edit" name="tag_edit"></block>
+        </reference>
+        <reference name="left">
+            <block type="mageplaza_betterblog/adminhtml_tag_edit_tabs" name="tag_tabs"></block>
+        </reference>
+    </adminhtml_betterblog_tag_edit>
+
+    <adminhtml_betterblog_post_tags>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="mageplaza_betterblog/adminhtml_post_edit_tab_tag" name="mageplaza_betterblog.post.edit.tab.tag"/>
+            <block type="adminhtml/widget_grid_serializer" name="tag_grid_serializer">
+                <reference name="tag_grid_serializer">
+                    <action method="initSerializerBlock">
+                        <grid_block_name>mageplaza_betterblog.post.edit.tab.tag</grid_block_name>
+                            <data_callback>getSelectedTags</data_callback>
+                            <hidden_input_name>tags</hidden_input_name>
+                            <reload_param_name>post_tags</reload_param_name>
+                    </action>
+                    <action method="addColumnInputName">
+                        <input_name>position</input_name>
+                    </action>
+                </reference>
+            </block>
+        </block>
+    </adminhtml_betterblog_post_tags>
+    <adminhtml_betterblog_post_tagsgrid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="mageplaza_betterblog/adminhtml_post_edit_tab_tag" name="mageplaza_betterblog.post.edit.tab.tag"/>
+        </block>
+    </adminhtml_betterblog_post_tagsgrid>
+    <adminhtml_betterblog_tag_posts>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="mageplaza_betterblog/adminhtml_tag_edit_tab_post" name="mageplaza_betterblog.tag.edit.tab.post"/>
+            <block type="adminhtml/widget_grid_serializer" name="post_grid_serializer">
+                <reference name="post_grid_serializer">
+                    <action method="initSerializerBlock">
+                        <grid_block_name>mageplaza_betterblog.tag.edit.tab.post</grid_block_name>
+                            <data_callback>getSelectedPosts</data_callback>
+                            <hidden_input_name>posts</hidden_input_name>
+                            <reload_param_name>tag_posts</reload_param_name>
+                    </action>
+                    <action method="addColumnInputName">
+                        <input_name>position</input_name>
+                    </action>
+                </reference>
+            </block>
+        </block>
+    </adminhtml_betterblog_tag_posts>
+    <adminhtml_betterblog_tag_postsgrid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="mageplaza_betterblog/adminhtml_tag_edit_tab_post" name="mageplaza_betterblog.tag.edit.tab.post"/>
+        </block>
+    </adminhtml_betterblog_tag_postsgrid>
+    <adminhtml_betterblog_category_edit>
+        <update handle="editor"/>
+        <reference name="left">
+            <block name="category.tree" type="mageplaza_betterblog/adminhtml_category_tree" />
+        </reference>
+        <reference name="content">
+            <block name="category.edit" type="mageplaza_betterblog/adminhtml_category_edit" template="mageplaza_betterblog/category/edit.phtml" />
+        </reference>
+        <reference name="js">
+            <block type="core/template" template="catalog/wysiwyg/js.phtml" name="catalog.wysiwyg.js" />
+        </reference>
+    </adminhtml_betterblog_category_edit>
+    <adminhtml_betterblog_post_categories>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="mageplaza_betterblog/adminhtml_post_edit_tab_category" name="post.edit.tab.category"/>
+        </block>
+    </adminhtml_betterblog_post_categories>
+    <adminhtml_betterblog_post_attribute_index>
+        <reference name="content">
+            <block type="mageplaza_betterblog/adminhtml_post_attribute" name="attribute_grid"></block>
+        </reference>
+    </adminhtml_betterblog_post_attribute_index>
+    <adminhtml_betterblog_post_attribute_edit>
+        <reference name="left">
+            <block type="mageplaza_betterblog/adminhtml_post_attribute_edit_tabs" name="attribute_edit_tabs"></block>
+        </reference>
+        <reference name="content">
+            <block type="mageplaza_betterblog/adminhtml_post_attribute_edit" name="attribute_edit_content"></block>
+        </reference>
+        <reference name="js">
+            <block type="adminhtml/template" name="attribute_edit_js" template="mageplaza_betterblog/attribute/js.phtml">
+                <action method="setMainEntityName"><name>post</name></action>
+            </block>
+        </reference>
+    </adminhtml_betterblog_post_attribute_edit>
+    <adminhtml_betterblog_post_comment_index>
+        <reference name="menu">
+            <action method="setActive">
+                <menupath>mageplaza_betterblog/post_comment</menupath>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="mageplaza_betterblog/adminhtml_post_comment" name="post_comment_grid"/>
+        </reference>
+    </adminhtml_betterblog_post_comment_index>
+    <adminhtml_betterblog_post_comment_grid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="mageplaza_betterblog/adminhtml_post_comment_grid" name="post_comment_grid"/>
+        </block>
+    </adminhtml_betterblog_post_comment_grid>
+    <adminhtml_betterblog_post_comment_edit>
+        <update handle="editor"/>
+        <reference name="menu">
+            <action method="setActive">
+                <menupath>mageplaza_betterblog/post_comment</menupath>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="mageplaza_betterblog/adminhtml_post_comment_edit" name="post_comment_edit"></block>
+        </reference>
+        <reference name="left">
+            <block type="mageplaza_betterblog/adminhtml_post_comment_edit_tabs" name="post_comment_tabs"></block>
+        </reference>
+    </adminhtml_betterblog_post_comment_edit>
+</layout>

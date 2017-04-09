@@ -1,0 +1,1228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns:typens="urn:{{var wsdl.name}}" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/"
+    name="{{var wsdl.name}}" targetNamespace="urn:{{var wsdl.name}}">
+    <types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:Magento">
+            <import namespace="http://schemas.xmlsoap.org/soap/encoding/" schemaLocation="http://schemas.xmlsoap.org/soap/encoding/" />
+            <complexType name="betterblogPostListEntity">
+                <all>
+                    <element name="entity_id" type="xsd:string" minOccurs="1" />
+                    <element name="post_title" type="xsd:string" minOccurs="1" />
+                    <element name="post_excerpt" type="xsd:string" minOccurs="0" />
+                    <element name="post_content" type="xsd:string" minOccurs="0" />
+                    <element name="image" type="xsd:string" minOccurs="0" />
+                    <element name="status" type="xsd:string" minOccurs="0" />
+                    <element name="url_key" type="xsd:string" minOccurs="0" />
+                    <element name="in_rss" type="xsd:string" minOccurs="0" />
+                    <element name="meta_title" type="xsd:string" minOccurs="0" />
+                    <element name="meta_keywords" type="xsd:string" minOccurs="0" />
+                    <element name="meta_description" type="xsd:string" minOccurs="0" />
+                    <element name="allow_comment" type="xsd:string" minOccurs="0" />
+                    <element name="additional_attributes" type="typens:betterblogPostAdditionalAttributesEntity" minOccurs="0"/>
+
+                    <element name="created_at" type="xsd:string" minOccurs="1" />
+                    <element name="updated_at" type="xsd:string" minOccurs="1" />
+                </all>
+            </complexType>
+            <complexType name="betterblogPostListEntityArray">
+                <complexContent>
+                    <restriction base="soapenc:Array">
+                        <attribute ref="soapenc:arrayType" wsdl:arrayType="typens:betterblogPostListEntity[]" />
+                    </restriction>
+                </complexContent>
+            </complexType>
+            <complexType name="betterblogPostAddEntity">
+                <all>
+                    <element name="post_title" type="xsd:string" minOccurs="1" />
+                    <element name="post_excerpt" type="xsd:string" minOccurs="0" />
+                    <element name="post_content" type="xsd:string" minOccurs="0" />
+                    <element name="image" type="xsd:string" minOccurs="0" />
+                    <element name="status" type="xsd:string" minOccurs="0" />
+                    <element name="url_key" type="xsd:string" minOccurs="0" />
+                    <element name="in_rss" type="xsd:string" minOccurs="0" />
+                    <element name="meta_title" type="xsd:string" minOccurs="0" />
+                    <element name="meta_keywords" type="xsd:string" minOccurs="0" />
+                    <element name="meta_description" type="xsd:string" minOccurs="0" />
+                    <element name="allow_comment" type="xsd:string" minOccurs="0" />
+                    <element name="additional_attributes" type="typens:betterblogPostAdditionalAttributesEntity" minOccurs="0"/>
+
+                </all>
+            </complexType>
+            <complexType name="betterblogPostUpdateEntity">
+                <all>
+                    <element name="post_title" type="xsd:string" minOccurs="1" />
+                    <element name="post_excerpt" type="xsd:string" minOccurs="0" />
+                    <element name="post_content" type="xsd:string" minOccurs="0" />
+                    <element name="image" type="xsd:string" minOccurs="0" />
+                    <element name="status" type="xsd:string" minOccurs="0" />
+                    <element name="url_key" type="xsd:string" minOccurs="0" />
+                    <element name="in_rss" type="xsd:string" minOccurs="0" />
+                    <element name="meta_title" type="xsd:string" minOccurs="0" />
+                    <element name="meta_keywords" type="xsd:string" minOccurs="0" />
+                    <element name="meta_description" type="xsd:string" minOccurs="0" />
+                    <element name="allow_comment" type="xsd:string" minOccurs="0" />
+                    <element name="additional_attributes" type="typens:betterblogPostAdditionalAttributesEntity" minOccurs="0"/>
+
+                </all>
+            </complexType>
+            <complexType name="betterblogPostInfoEntity">
+                <all>
+                    <element name="entity_id" type="xsd:string" minOccurs="1" />
+                    <element name="post_title" type="xsd:string" minOccurs="1" />
+                    <element name="post_excerpt" type="xsd:string" minOccurs="0" />
+                    <element name="post_content" type="xsd:string" minOccurs="0" />
+                    <element name="image" type="xsd:string" minOccurs="0" />
+                    <element name="status" type="xsd:string" minOccurs="0" />
+                    <element name="url_key" type="xsd:string" minOccurs="0" />
+                    <element name="in_rss" type="xsd:string" minOccurs="0" />
+                    <element name="meta_title" type="xsd:string" minOccurs="0" />
+                    <element name="meta_keywords" type="xsd:string" minOccurs="0" />
+                    <element name="meta_description" type="xsd:string" minOccurs="0" />
+                    <element name="allow_comment" type="xsd:string" minOccurs="0" />
+                    <element name="additional_attributes" type="typens:betterblogPostAdditionalAttributesEntity" minOccurs="0"/>
+
+                    <element name="created_at" type="xsd:string" minOccurs="1" />
+                    <element name="updated_at" type="xsd:string" minOccurs="1" />
+                </all>
+            </complexType>
+            <complexType name="betterblogPostAssignCategoryEntity">
+                <all>
+                <element name="postId" type="xsd:string" minOccurs="1" />
+                <element name="categoryId" type="xsd:string" minOccurs="1" />
+                <element name="position" type="xsd:string" minOccurs="0" />
+                </all>
+            </complexType>
+            <complexType name="betterblogPostUnassignCategoryEntity">
+                <all>
+                <element name="postId" type="xsd:string" minOccurs="1" />
+                <element name="categoryId" type="xsd:string" minOccurs="1" />
+                </all>
+            </complexType>
+            <complexType name="betterblogPostAssignTagEntity">
+                <all>
+                <element name="postId" type="xsd:string" minOccurs="1" />
+                <element name="tagId" type="xsd:string" minOccurs="1" />
+                <element name="position" type="xsd:string" minOccurs="0" />
+                </all>
+            </complexType>
+            <complexType name="betterblogPostUnassignTagEntity">
+                <all>
+                <element name="postId" type="xsd:string" minOccurs="1" />
+                <element name="tagId" type="xsd:string" minOccurs="1" />
+                </all>
+            </complexType>
+                    <complexType name="betterblogCategoryListEntity">
+                <all>
+                    <element name="entity_id" type="xsd:string" minOccurs="1" />
+                    <element name="name" type="xsd:string" minOccurs="1" />
+                    <element name="description" type="xsd:string" minOccurs="0" />
+                    <element name="status" type="xsd:string" minOccurs="0" />
+                    <element name="url_key" type="xsd:string" minOccurs="0" />
+                    <element name="parent_id" type="xsd:string" minOccurs="0" />
+                    <element name="path" type="xsd:string" minOccurs="0" />
+                    <element name="position" type="xsd:string" minOccurs="0" />
+                    <element name="level" type="xsd:string" minOccurs="0" />
+                    <element name="children_count" type="xsd:string" minOccurs="0" />
+                    <element name="in_rss" type="xsd:string" minOccurs="0" />
+                    <element name="meta_title" type="xsd:string" minOccurs="0" />
+                    <element name="meta_keywords" type="xsd:string" minOccurs="0" />
+                    <element name="meta_description" type="xsd:string" minOccurs="0" />
+
+                    <element name="created_at" type="xsd:string" minOccurs="1" />
+                    <element name="updated_at" type="xsd:string" minOccurs="1" />
+                </all>
+            </complexType>
+            <complexType name="betterblogCategoryListEntityArray">
+                <complexContent>
+                    <restriction base="soapenc:Array">
+                        <attribute ref="soapenc:arrayType" wsdl:arrayType="typens:betterblogCategoryListEntity[]" />
+                    </restriction>
+                </complexContent>
+            </complexType>
+            <complexType name="betterblogCategoryAddEntity">
+                <all>
+                    <element name="name" type="xsd:string" minOccurs="1" />
+                    <element name="description" type="xsd:string" minOccurs="0" />
+                    <element name="status" type="xsd:string" minOccurs="0" />
+                    <element name="url_key" type="xsd:string" minOccurs="0" />
+                    <element name="parent_id" type="xsd:string" minOccurs="0" />
+                    <element name="in_rss" type="xsd:string" minOccurs="0" />
+                    <element name="meta_title" type="xsd:string" minOccurs="0" />
+                    <element name="meta_keywords" type="xsd:string" minOccurs="0" />
+                    <element name="meta_description" type="xsd:string" minOccurs="0" />
+
+                </all>
+            </complexType>
+            <complexType name="betterblogCategoryUpdateEntity">
+                <all>
+                    <element name="name" type="xsd:string" minOccurs="1" />
+                    <element name="description" type="xsd:string" minOccurs="0" />
+                    <element name="status" type="xsd:string" minOccurs="0" />
+                    <element name="url_key" type="xsd:string" minOccurs="0" />
+                    <element name="parent_id" type="xsd:string" minOccurs="0" />
+                    <element name="in_rss" type="xsd:string" minOccurs="0" />
+                    <element name="meta_title" type="xsd:string" minOccurs="0" />
+                    <element name="meta_keywords" type="xsd:string" minOccurs="0" />
+                    <element name="meta_description" type="xsd:string" minOccurs="0" />
+
+                </all>
+            </complexType>
+            <complexType name="betterblogCategoryInfoEntity">
+                <all>
+                    <element name="entity_id" type="xsd:string" minOccurs="1" />
+                    <element name="name" type="xsd:string" minOccurs="1" />
+                    <element name="description" type="xsd:string" minOccurs="0" />
+                    <element name="status" type="xsd:string" minOccurs="0" />
+                    <element name="url_key" type="xsd:string" minOccurs="0" />
+                    <element name="parent_id" type="xsd:string" minOccurs="0" />
+                    <element name="path" type="xsd:string" minOccurs="0" />
+                    <element name="position" type="xsd:string" minOccurs="0" />
+                    <element name="level" type="xsd:string" minOccurs="0" />
+                    <element name="children_count" type="xsd:string" minOccurs="0" />
+                    <element name="in_rss" type="xsd:string" minOccurs="0" />
+                    <element name="meta_title" type="xsd:string" minOccurs="0" />
+                    <element name="meta_keywords" type="xsd:string" minOccurs="0" />
+                    <element name="meta_description" type="xsd:string" minOccurs="0" />
+
+                    <element name="created_at" type="xsd:string" minOccurs="1" />
+                    <element name="updated_at" type="xsd:string" minOccurs="1" />
+                </all>
+            </complexType>
+            <complexType name="betterblogCategoryMoveEntity">
+                <all>
+                <element name="category_id" type="xsd:string" minOccurs="1" />
+                <element name="parent_id" type="xsd:string" minOccurs="1" />
+                <element name="after_id" type="xsd:string" minOccurs="0" />
+                </all>
+            </complexType>
+            <complexType name="betterblogCategoryAssignPostEntity">
+                <all>
+                <element name="categoryId" type="xsd:string" minOccurs="1" />
+                <element name="postId" type="xsd:string" minOccurs="1" />
+                <element name="position" type="xsd:string" minOccurs="0" />
+                </all>
+            </complexType>
+            <complexType name="betterblogCategoryUnassignPostEntity">
+                <all>
+                <element name="categoryId" type="xsd:string" minOccurs="1" />
+                <element name="postId" type="xsd:string" minOccurs="1" />
+                </all>
+            </complexType>
+                    <complexType name="betterblogTagListEntity">
+                <all>
+                    <element name="entity_id" type="xsd:string" minOccurs="1" />
+                    <element name="name" type="xsd:string" minOccurs="1" />
+                    <element name="description" type="xsd:string" minOccurs="0" />
+                    <element name="status" type="xsd:string" minOccurs="0" />
+                    <element name="url_key" type="xsd:string" minOccurs="0" />
+                    <element name="in_rss" type="xsd:string" minOccurs="0" />
+                    <element name="meta_title" type="xsd:string" minOccurs="0" />
+                    <element name="meta_keywords" type="xsd:string" minOccurs="0" />
+                    <element name="meta_description" type="xsd:string" minOccurs="0" />
+
+                    <element name="created_at" type="xsd:string" minOccurs="1" />
+                    <element name="updated_at" type="xsd:string" minOccurs="1" />
+                </all>
+            </complexType>
+            <complexType name="betterblogTagListEntityArray">
+                <complexContent>
+                    <restriction base="soapenc:Array">
+                        <attribute ref="soapenc:arrayType" wsdl:arrayType="typens:betterblogTagListEntity[]" />
+                    </restriction>
+                </complexContent>
+            </complexType>
+            <complexType name="betterblogTagAddEntity">
+                <all>
+                    <element name="name" type="xsd:string" minOccurs="1" />
+                    <element name="description" type="xsd:string" minOccurs="0" />
+                    <element name="status" type="xsd:string" minOccurs="0" />
+                    <element name="url_key" type="xsd:string" minOccurs="0" />
+                    <element name="in_rss" type="xsd:string" minOccurs="0" />
+                    <element name="meta_title" type="xsd:string" minOccurs="0" />
+                    <element name="meta_keywords" type="xsd:string" minOccurs="0" />
+                    <element name="meta_description" type="xsd:string" minOccurs="0" />
+
+                </all>
+            </complexType>
+            <complexType name="betterblogTagUpdateEntity">
+                <all>
+                    <element name="name" type="xsd:string" minOccurs="1" />
+                    <element name="description" type="xsd:string" minOccurs="0" />
+                    <element name="status" type="xsd:string" minOccurs="0" />
+                    <element name="url_key" type="xsd:string" minOccurs="0" />
+                    <element name="in_rss" type="xsd:string" minOccurs="0" />
+                    <element name="meta_title" type="xsd:string" minOccurs="0" />
+                    <element name="meta_keywords" type="xsd:string" minOccurs="0" />
+                    <element name="meta_description" type="xsd:string" minOccurs="0" />
+
+                </all>
+            </complexType>
+            <complexType name="betterblogTagInfoEntity">
+                <all>
+                    <element name="entity_id" type="xsd:string" minOccurs="1" />
+                    <element name="name" type="xsd:string" minOccurs="1" />
+                    <element name="description" type="xsd:string" minOccurs="0" />
+                    <element name="status" type="xsd:string" minOccurs="0" />
+                    <element name="url_key" type="xsd:string" minOccurs="0" />
+                    <element name="in_rss" type="xsd:string" minOccurs="0" />
+                    <element name="meta_title" type="xsd:string" minOccurs="0" />
+                    <element name="meta_keywords" type="xsd:string" minOccurs="0" />
+                    <element name="meta_description" type="xsd:string" minOccurs="0" />
+
+                    <element name="created_at" type="xsd:string" minOccurs="1" />
+                    <element name="updated_at" type="xsd:string" minOccurs="1" />
+                </all>
+            </complexType>
+            <complexType name="betterblogTagAssignPostEntity">
+                <all>
+                <element name="tagId" type="xsd:string" minOccurs="1" />
+                <element name="postId" type="xsd:string" minOccurs="1" />
+                <element name="position" type="xsd:string" minOccurs="0" />
+                </all>
+            </complexType>
+            <complexType name="betterblogTagUnassignPostEntity">
+                <all>
+                <element name="tagId" type="xsd:string" minOccurs="1" />
+                <element name="postId" type="xsd:string" minOccurs="1" />
+                </all>
+            </complexType>
+                    <complexType name="betterblogPostCommentListEntity">
+                <all>
+                    <element name="comment_id" type="xsd:string" minOccurs="1" />
+                    <element name="post_id" type="xsd:string" minOccurs="1" />
+                    <element name="title" type="xsd:string" minOccurs="1" />
+                    <element name="comment" type="xsd:string" minOccurs="1" />
+                    <element name="status" type="xsd:string" minOccurs="1" />
+                    <element name="customer_id" type="xsd:string" minOccurs="1" />
+                    <element name="name" type="xsd:string" minOccurs="1" />
+                    <element name="email" type="xsd:string" minOccurs="1" />
+                    <element name="created_at" type="xsd:string" minOccurs="1" />
+                    <element name="updated_at" type="xsd:string" minOccurs="1" />
+                </all>
+            </complexType>
+            <complexType name="betterblogPostCommentListEntityArray">
+                <complexContent>
+                    <restriction base="soapenc:Array">
+                        <attribute ref="soapenc:arrayType" wsdl:arrayType="typens:betterblogPostCommentListEntity[]" />
+                    </restriction>
+                </complexContent>
+            </complexType>
+            <complexType name="betterblogPostAdditionalAttributesEntity">
+                <all>
+                    <element name="multi_data" type="typens:associativeMultiArray" minOccurs="0" />
+                    <element name="single_data" type="typens:associativeArray" minOccurs="0" />
+                </all>
+            </complexType>
+            <complexType name="betterblogPostAttributeOptionEntity">
+                <all>
+                    <element name="label" type="xsd:string"/>
+                    <element name="value" type="xsd:string"/>
+                </all>
+            </complexType>
+            <complexType name="betterblogPostAttributeOptionEntityArray">
+                <complexContent>
+                    <restriction base="soapenc:Array">
+                        <attribute ref="soapenc:arrayType" wsdl:arrayType="typens:betterblogPostAttributeOptionEntity[]"/>
+                    </restriction>
+                </complexContent>
+            </complexType>
+            <complexType name="betterblogPostAttributeOptionLabelEntity">
+                <all>
+                    <element name="store_id" type="typens:ArrayOfString" />
+                    <element name="value" type="xsd:string" />
+                </all>
+            </complexType>
+            <complexType name="betterblogPostAttributeOptionLabelArray">
+                <complexContent>
+                    <restriction base="soapenc:Array">
+                        <attribute ref="soapenc:arrayType" wsdl:arrayType="typens:betterblogPostAttributeOptionLabelEntity[]"/>
+                    </restriction>
+                </complexContent>
+            </complexType>
+            <complexType name="betterblogPostRequestAttributes">
+                <all>
+                    <element name="attributes" type="typens:ArrayOfString" minOccurs="0"/>
+                    <element name="additional_attributes" type="typens:ArrayOfString" minOccurs="0"/>
+                </all>
+            </complexType>
+            <complexType name="betterblogPostAttributeFrontendLabelEntity">
+                <all>
+                    <element name="store_id" type="xsd:string" />
+                    <element name="label" type="xsd:string" />
+                </all>
+            </complexType>
+            <complexType name="betterblogPostAttributeFrontendLabelArray">
+                <complexContent>
+                    <restriction base="soapenc:Array">
+                        <attribute ref="soapenc:arrayType" wsdl:arrayType="typens:betterblogPostAttributeFrontendLabelEntity[]"/>
+                    </restriction>
+                </complexContent>
+            </complexType>
+            <complexType name="betterblogPostAttributeEntityToCreate">
+                <all>
+                    <element name="attribute_code" type="xsd:string" minOccurs="1" maxOccurs="1" />
+                    <element name="frontend_input" type="xsd:string" minOccurs="1" maxOccurs="1" />
+                    <element name="scope" type="xsd:string" minOccurs="0" />
+                    <element name="default_value" type="xsd:string" minOccurs="0" />
+                    <element name="is_required" type="xsd:int" minOccurs="0" />
+                    <element name="additional_fields" type="typens:associativeArray" minOccurs="0"/>
+                    <element name="frontend_label" type="typens:betterblogPostAttributeFrontendLabelArray" minOccurs="1" />
+                </all>
+            </complexType>
+            <complexType name="betterblogPostAttributeEntityToUpdate">
+                <all>
+                    <element name="scope" type="xsd:string" minOccurs="0" />
+                    <element name="default_value" type="xsd:string" minOccurs="0" />
+                    <element name="is_required" type="xsd:int" minOccurs="0" />
+                    <element name="additional_fields" type="typens:associativeArray" minOccurs="0"/>
+                    <element name="frontend_label" type="typens:betterblogPostAttributeFrontendLabelArray" minOccurs="1" />
+                </all>
+            </complexType>
+            <complexType name="betterblogPostAttributeEntity">
+                <all>
+                    <element name="attribute_id" type="xsd:string" minOccurs="1" maxOccurs="1" />
+                    <element name="attribute_code" type="xsd:string" minOccurs="1" maxOccurs="1" />
+                    <element name="frontend_input" type="xsd:string" minOccurs="1" maxOccurs="1" />
+                    <element name="scope" type="xsd:string" minOccurs="0" />
+                    <element name="default_value" type="xsd:string" minOccurs="0" />
+                    <element name="is_required" type="xsd:int" minOccurs="0" />
+                    <element name="additional_fields" type="typens:associativeArray" minOccurs="0"/>
+                    <element name="options" type="typens:betterblogPostAttributeOptionEntityArray" minOccurs="0"/>
+                    <element name="frontend_label" type="typens:betterblogPostAttributeFrontendLabelArray" minOccurs="1" />
+                </all>
+            </complexType>
+            <complexType name="betterblogPostAttributeOptionLabelEntity">
+                <all>
+                    <element name="store_id" type="typens:ArrayOfString" />
+                    <element name="value" type="xsd:string" />
+                </all>
+            </complexType>
+            <complexType name="betterblogPostAttributeOptionLabelArray">
+                <complexContent>
+                    <restriction base="soapenc:Array">
+                        <attribute ref="soapenc:arrayType" wsdl:arrayType="typens:betterblogPostAttributeOptionLabelEntity[]"/>
+                    </restriction>
+                </complexContent>
+            </complexType>
+            <complexType name="betterblogPostAttributeOptionEntityToAdd">
+                <all>
+                    <element name="label" type="typens:betterblogPostAttributeOptionLabelArray" />
+                    <element name="order" type="xsd:int" />
+                    <element name="is_default" type="xsd:int" />
+                </all>
+            </complexType>
+        </schema>
+    </types>
+    <message name="betterblogPostListRequest">
+        <part name="sessionId" type="xsd:string" />
+        <part name="filters" type="typens:filters"/>
+    </message>
+    <message name="betterblogPostListResponse">
+        <part name="result" type="typens:betterblogPostListEntityArray" />
+    </message>
+    <message name="betterblogPostInfoRequest">
+        <part name="sessionId" type="xsd:string" />
+        <part name="postId" type="xsd:string" />
+    </message>
+    <message name="betterblogPostInfoResponse">
+        <part name="result" type="typens:betterblogPostInfoEntity" />
+    </message>
+    <message name="betterblogPostAddRequest">
+        <part name="sessionId" type="xsd:string" />
+        <part name="data" type="typens:betterblogPostAddEntity" />
+    </message>
+    <message name="betterblogPostAddResponse">
+        <part name="result" type="xsd:int"/>
+    </message>
+    <message name="betterblogPostUpdateRequest">
+        <part name="sessionId" type="xsd:string" />
+        <part name="postId" type="xsd:string" />
+        <part name="data" type="typens:betterblogPostUpdateEntity" />
+    </message>
+    <message name="betterblogPostUpdateResponse">
+        <part name="result" type="xsd:boolean" />
+    </message>
+    <message name="betterblogPostRemoveRequest">
+        <part name="sessionId" type="xsd:string" />
+        <part name="postId" type="xsd:string" />
+    </message>
+    <message name="betterblogPostRemoveResponse">
+        <part name="result" type="xsd:boolean" />
+    </message>
+        <message name="betterblogPostAssignCategoryRequest">
+            <part name="sessionId" type="xsd:string" />
+            <part name="post_id" type="xsd:string" />
+            <part name="category_id" type="xsd:string" />
+            <part name="position" type="xsd:string" />
+        </message>
+        <message name="betterblogPostAssignCategoryResponse">
+            <part name="result" type="xsd:boolean" />
+        </message>
+        <message name="betterblogPostUnassignCategoryRequest">
+            <part name="session_id" type="xsd:string" />
+            <part name="post_id" type="xsd:string" />
+            <part name="category_id" type="xsd:string" />
+        </message>
+        <message name="betterblogPostUnassignCategoryResponse">
+            <part name="result" type="xsd:boolean" />
+        </message>
+        <message name="betterblogPostAssignTagRequest">
+            <part name="sessionId" type="xsd:string" />
+            <part name="post_id" type="xsd:string" />
+            <part name="tag_id" type="xsd:string" />
+            <part name="position" type="xsd:string" />
+        </message>
+        <message name="betterblogPostAssignTagResponse">
+            <part name="result" type="xsd:boolean" />
+        </message>
+        <message name="betterblogPostUnassignTagRequest">
+            <part name="session_id" type="xsd:string" />
+            <part name="post_id" type="xsd:string" />
+            <part name="tag_id" type="xsd:string" />
+        </message>
+        <message name="betterblogPostUnassignTagResponse">
+            <part name="result" type="xsd:boolean" />
+        </message>
+        <message name="betterblogCategoryListRequest">
+        <part name="sessionId" type="xsd:string" />
+        <part name="filters" type="typens:filters"/>
+    </message>
+    <message name="betterblogCategoryListResponse">
+        <part name="result" type="typens:betterblogCategoryListEntityArray" />
+    </message>
+    <message name="betterblogCategoryInfoRequest">
+        <part name="sessionId" type="xsd:string" />
+        <part name="categoryId" type="xsd:string" />
+    </message>
+    <message name="betterblogCategoryInfoResponse">
+        <part name="result" type="typens:betterblogCategoryInfoEntity" />
+    </message>
+    <message name="betterblogCategoryAddRequest">
+        <part name="sessionId" type="xsd:string" />
+        <part name="data" type="typens:betterblogCategoryAddEntity" />
+    </message>
+    <message name="betterblogCategoryAddResponse">
+        <part name="result" type="xsd:int"/>
+    </message>
+    <message name="betterblogCategoryUpdateRequest">
+        <part name="sessionId" type="xsd:string" />
+        <part name="categoryId" type="xsd:string" />
+        <part name="data" type="typens:betterblogCategoryUpdateEntity" />
+    </message>
+    <message name="betterblogCategoryUpdateResponse">
+        <part name="result" type="xsd:boolean" />
+    </message>
+    <message name="betterblogCategoryRemoveRequest">
+        <part name="sessionId" type="xsd:string" />
+        <part name="categoryId" type="xsd:string" />
+    </message>
+    <message name="betterblogCategoryRemoveResponse">
+        <part name="result" type="xsd:boolean" />
+    </message>
+        <message name="betterblogCategoryMoveRequest">
+            <part name="session_id" type="xsd:string" />
+            <part name="category_id" type="xsd:string" />
+            <part name="parent_id" type="xsd:string" />
+            <part name="after_id" type="xsd:string" />
+        </message>
+        <message name="betterblogCategoryMoveResponse">
+            <part name="id" type="xsd:boolean"/>
+        </message>
+        <message name="betterblogCategoryAssignPostRequest">
+            <part name="sessionId" type="xsd:string" />
+            <part name="category_id" type="xsd:string" />
+            <part name="post_id" type="xsd:string" />
+            <part name="position" type="xsd:string" />
+        </message>
+        <message name="betterblogCategoryAssignPostResponse">
+            <part name="result" type="xsd:boolean" />
+        </message>
+        <message name="betterblogCategoryUnassignPostRequest">
+            <part name="session_id" type="xsd:string" />
+            <part name="category_id" type="xsd:string" />
+            <part name="post_id" type="xsd:string" />
+        </message>
+        <message name="betterblogCategoryUnassignPostResponse">
+            <part name="result" type="xsd:boolean" />
+        </message>
+        <message name="betterblogTagListRequest">
+        <part name="sessionId" type="xsd:string" />
+        <part name="filters" type="typens:filters"/>
+    </message>
+    <message name="betterblogTagListResponse">
+        <part name="result" type="typens:betterblogTagListEntityArray" />
+    </message>
+    <message name="betterblogTagInfoRequest">
+        <part name="sessionId" type="xsd:string" />
+        <part name="tagId" type="xsd:string" />
+    </message>
+    <message name="betterblogTagInfoResponse">
+        <part name="result" type="typens:betterblogTagInfoEntity" />
+    </message>
+    <message name="betterblogTagAddRequest">
+        <part name="sessionId" type="xsd:string" />
+        <part name="data" type="typens:betterblogTagAddEntity" />
+    </message>
+    <message name="betterblogTagAddResponse">
+        <part name="result" type="xsd:int"/>
+    </message>
+    <message name="betterblogTagUpdateRequest">
+        <part name="sessionId" type="xsd:string" />
+        <part name="tagId" type="xsd:string" />
+        <part name="data" type="typens:betterblogTagUpdateEntity" />
+    </message>
+    <message name="betterblogTagUpdateResponse">
+        <part name="result" type="xsd:boolean" />
+    </message>
+    <message name="betterblogTagRemoveRequest">
+        <part name="sessionId" type="xsd:string" />
+        <part name="tagId" type="xsd:string" />
+    </message>
+    <message name="betterblogTagRemoveResponse">
+        <part name="result" type="xsd:boolean" />
+    </message>
+        <message name="betterblogTagAssignPostRequest">
+            <part name="sessionId" type="xsd:string" />
+            <part name="tag_id" type="xsd:string" />
+            <part name="post_id" type="xsd:string" />
+            <part name="position" type="xsd:string" />
+        </message>
+        <message name="betterblogTagAssignPostResponse">
+            <part name="result" type="xsd:boolean" />
+        </message>
+        <message name="betterblogTagUnassignPostRequest">
+            <part name="session_id" type="xsd:string" />
+            <part name="tag_id" type="xsd:string" />
+            <part name="post_id" type="xsd:string" />
+        </message>
+        <message name="betterblogTagUnassignPostResponse">
+            <part name="result" type="xsd:boolean" />
+        </message>
+        <message name="betterblogPostCommentListRequest">
+        <part name="sessionId" type="xsd:string" />
+        <part name="filters" type="typens:filters"/>
+    </message>
+    <message name="betterblogPostCommentListResponse">
+        <part name="result" type="typens:betterblogPostCommentListEntityArray" />
+    </message>
+    <message name="betterblogPostCommentUpdateStatusRequest">
+        <part name="sessionId" type="xsd:string" />
+        <part name="commentId" type="xsd:string" />
+        <part name="status" type="xsd:string" />
+    </message>
+    <message name="betterblogPostCommentUpdateStatusResponse">
+        <part name="result" type="xsd:int" />
+    </message>
+    <message name="betterblogPostListOfAdditionalAttributesRequest">
+        <part name="sessionId" type="xsd:string" />
+    </message>
+    <message name="betterblogPostListOfAdditionalAttributesResponse">
+        <part name="result" type="typens:betterblogPostAttributeEntityArray" />
+    </message>
+    <message name="betterblogPostAttributeCurrentStoreRequest">
+        <part name="sessionId" type="xsd:string"/>
+        <part name="storeView" type="xsd:string"/>
+    </message>
+    <message name="betterblogPostAttributeCurrentStoreResponse">
+        <part name="storeView" type="xsd:int"/>
+    </message>
+    <message name="betterblogPostAttributeListRequest">
+        <part name="sessionId" type="xsd:string"/>
+    </message>
+    <message name="betterblogPostAttributeListResponse">
+        <part name="result" type="typens:betterblogPostAttributeEntityArray"/>
+    </message>
+    <message name="betterblogPostAttributeOptionsRequest">
+        <part name="sessionId" type="xsd:string"/>
+        <part name="attributeId" type="xsd:string"/>
+        <part name="storeView" type="xsd:string"/>
+    </message>
+    <message name="betterblogPostAttributeOptionsResponse">
+        <part name="result" type="typens:betterblogPostAttributeOptionEntityArray"/>
+    </message>
+    <message name="betterblogPostAttributeTypesRequest">
+        <part name="sessionId" type="xsd:string"/>
+    </message>
+    <message name="betterblogPostAttributeTypesResponse">
+        <part name="result" type="typens:betterblogPostAttributeOptionEntityArray" />
+    </message>
+    <message name="betterblogPostAttributeCreateRequest">
+        <part name="sessionId" type="xsd:string"/>
+        <part name="data" type="typens:betterblogPostAttributeEntityToCreate"/>
+    </message>
+    <message name="betterblogPostAttributeCreateResponse">
+        <part name="result" type="xsd:int" />
+    </message>
+    <message name="betterblogPostAttributeRemoveRequest">
+        <part name="sessionId" type="xsd:string"/>
+        <part name="attribute" type="xsd:string"/>
+    </message>
+    <message name="betterblogPostAttributeRemoveResponse">
+        <part name="result" type="xsd:boolean" />
+    </message>
+    <message name="betterblogPostAttributeInfoRequest">
+        <part name="sessionId" type="xsd:string"/>
+        <part name="attribute" type="xsd:string"/>
+    </message>
+    <message name="betterblogPostAttributeInfoResponse">
+        <part name="result" type="typens:betterblogPostAttributeEntity" />
+    </message>
+    <message name="betterblogPostAttributeUpdateRequest">
+        <part name="sessionId" type="xsd:string"/>
+        <part name="attribute" type="xsd:string"/>
+        <part name="data" type="typens:betterblogPostAttributeEntityToUpdate"/>
+    </message>
+    <message name="betterblogPostAttributeUpdateResponse">
+        <part name="result" type="xsd:boolean" />
+    </message>
+    <message name="betterblogPostAttributeAddOptionRequest">
+        <part name="sessionId" type="xsd:string"/>
+        <part name="attribute" type="xsd:string"/>
+        <part name="data" type="typens:betterblogPostAttributeOptionEntityToAdd"/>
+    </message>
+    <message name="betterblogPostAttributeAddOptionResponse">
+        <part name="result" type="xsd:boolean" />
+    </message>
+    <message name="betterblogPostAttributeRemoveOptionRequest">
+        <part name="sessionId" type="xsd:string"/>
+        <part name="attribute" type="xsd:string"/>
+        <part name="optionId" type="xsd:string"/>
+    </message>
+    <message name="betterblogPostAttributeRemoveOptionResponse">
+        <part name="result" type="xsd:boolean" />
+    </message>
+    <portType name="{{var wsdl.handler}}PortType">
+        <operation name="betterblogPostList">
+            <documentation>Retrieve list of post</documentation>
+            <input message="typens:betterblogPostListRequest" />
+            <output message="typens:betterblogPostListResponse" />
+        </operation>
+        <operation name="betterblogPostInfo">
+            <documentation>Retrieve post info</documentation>
+            <input message="typens:betterblogPostInfoRequest" />
+            <output message="typens:betterblogPostInfoResponse" />
+        </operation>
+        <operation name="betterblogPostAdd">
+            <documentation>Add post</documentation>
+            <input message="typens:betterblogPostAddRequest" />
+            <output message="typens:betterblogPostAddResponse" />
+        </operation>
+        <operation name="betterblogPostUpdate">
+            <documentation>Update post</documentation>
+            <input message="typens:betterblogPostUpdateRequest" />
+            <output message="typens:betterblogPostUpdateResponse" />
+        </operation>
+        <operation name="betterblogPostRemove">
+            <documentation>Remove post</documentation>
+            <input message="typens:betterblogPostRemoveRequest" />
+            <output message="typens:betterblogPostRemoveResponse" />
+        </operation>
+        <operation name="betterblogPostAssignCategory">
+            <documentation>Assign category to post</documentation>
+            <input message="typens:betterblogPostAssignCategoryRequest" />
+            <output message="typens:betterblogPostAssignCategoryResponse" />
+        </operation>
+        <operation name="betterblogPostUnassignCategory">
+            <documentation>Remove category from post</documentation>
+            <input message="typens:betterblogPostUnassignCategoryRequest" />
+            <output message="typens:betterblogPostUnassignCategoryResponse" />
+        </operation>
+        <operation name="betterblogPostAssignTag">
+            <documentation>Assign tag to post</documentation>
+            <input message="typens:betterblogPostAssignTagRequest" />
+            <output message="typens:betterblogPostAssignTagResponse" />
+        </operation>
+        <operation name="betterblogPostUnassignTag">
+            <documentation>Remove tag from post</documentation>
+            <input message="typens:betterblogPostUnassignTagRequest" />
+            <output message="typens:betterblogPostUnassignTagResponse" />
+        </operation>
+            <operation name="betterblogCategoryList">
+            <documentation>Retrieve list of category</documentation>
+            <input message="typens:betterblogCategoryListRequest" />
+            <output message="typens:betterblogCategoryListResponse" />
+        </operation>
+        <operation name="betterblogCategoryInfo">
+            <documentation>Retrieve category info</documentation>
+            <input message="typens:betterblogCategoryInfoRequest" />
+            <output message="typens:betterblogCategoryInfoResponse" />
+        </operation>
+        <operation name="betterblogCategoryAdd">
+            <documentation>Add category</documentation>
+            <input message="typens:betterblogCategoryAddRequest" />
+            <output message="typens:betterblogCategoryAddResponse" />
+        </operation>
+        <operation name="betterblogCategoryUpdate">
+            <documentation>Update category</documentation>
+            <input message="typens:betterblogCategoryUpdateRequest" />
+            <output message="typens:betterblogCategoryUpdateResponse" />
+        </operation>
+        <operation name="betterblogCategoryRemove">
+            <documentation>Remove category</documentation>
+            <input message="typens:betterblogCategoryRemoveRequest" />
+            <output message="typens:betterblogCategoryRemoveResponse" />
+        </operation>
+        <operation name="betterblogCategoryMove">
+            <documentation>Move category in tree</documentation>
+            <input message="typens:betterblogCategoryMoveRequest" />
+            <output message="typens:betterblogCategoryMoveResponse" />
+        </operation>
+        <operation name="betterblogCategoryAssignPost">
+            <documentation>Assign post to category</documentation>
+            <input message="typens:betterblogCategoryAssignPostRequest" />
+            <output message="typens:betterblogCategoryAssignPostResponse" />
+        </operation>
+        <operation name="betterblogCategoryUnassignPost">
+            <documentation>Remove post from category</documentation>
+            <input message="typens:betterblogCategoryUnassignPostRequest" />
+            <output message="typens:betterblogCategoryUnassignPostResponse" />
+        </operation>
+            <operation name="betterblogTagList">
+            <documentation>Retrieve list of tag</documentation>
+            <input message="typens:betterblogTagListRequest" />
+            <output message="typens:betterblogTagListResponse" />
+        </operation>
+        <operation name="betterblogTagInfo">
+            <documentation>Retrieve tag info</documentation>
+            <input message="typens:betterblogTagInfoRequest" />
+            <output message="typens:betterblogTagInfoResponse" />
+        </operation>
+        <operation name="betterblogTagAdd">
+            <documentation>Add tag</documentation>
+            <input message="typens:betterblogTagAddRequest" />
+            <output message="typens:betterblogTagAddResponse" />
+        </operation>
+        <operation name="betterblogTagUpdate">
+            <documentation>Update tag</documentation>
+            <input message="typens:betterblogTagUpdateRequest" />
+            <output message="typens:betterblogTagUpdateResponse" />
+        </operation>
+        <operation name="betterblogTagRemove">
+            <documentation>Remove tag</documentation>
+            <input message="typens:betterblogTagRemoveRequest" />
+            <output message="typens:betterblogTagRemoveResponse" />
+        </operation>
+        <operation name="betterblogTagAssignPost">
+            <documentation>Assign post to tag</documentation>
+            <input message="typens:betterblogTagAssignPostRequest" />
+            <output message="typens:betterblogTagAssignPostResponse" />
+        </operation>
+        <operation name="betterblogTagUnassignPost">
+            <documentation>Remove post from tag</documentation>
+            <input message="typens:betterblogTagUnassignPostRequest" />
+            <output message="typens:betterblogTagUnassignPostResponse" />
+        </operation>
+            <operation name="betterblogPostCommentList">
+            <documentation>Retrieve list of post comments</documentation>
+            <input message="typens:betterblogPostCommentListRequest" />
+            <output message="typens:betterblogPostCommentListResponse" />
+        </operation>
+        <operation name="betterblogPostCommentUpdateStatus">
+            <documentation>Change post comment status</documentation>
+            <input message="typens:betterblogPostCommentUpdateStatusRequest" />
+            <output message="typens:betterblogPostCommentUpdateStatusResponse" />
+        </operation>
+        <operation name="betterblogPostListOfAdditionalAttributes">
+            <documentation>Get list of additional attributes which are not in default create/update list</documentation>
+            <input message="typens:betterblogPostListOfAdditionalAttributesRequest"/>
+            <output message="typens:betterblogPostListOfAdditionalAttributesResponse"/>
+        </operation>
+        <operation name="betterblogPostAttributeCurrentStore">
+            <documentation>Set/Get current store view</documentation>
+            <input message="typens:betterblogPostAttributeCurrentStoreRequest"/>
+            <output message="typens:betterblogPostAttributeCurrentStoreResponse"/>
+        </operation>
+        <operation name="betterblogPostListOfAdditionalAttributes">
+            <documentation>Get list of additional attributes which are not in default create/update list</documentation>
+            <input message="typens:betterblogPostListOfAdditionalAttributesRequest"/>
+            <output message="typens:betterblogPostListOfAdditionalAttributesResponse"/>
+        </operation>
+        <operation name="betterblogPostAttributeList">
+            <documentation>Retrieve post attribute list</documentation>
+            <input message="typens:betterblogPostAttributeListRequest"/>
+            <output message="typens:betterblogPostAttributeListResponse"/>
+        </operation>
+        <operation name="betterblogPostAttributeOptions">
+            <documentation>Retrieve post attribute options</documentation>
+            <input message="typens:betterblogPostAttributeOptionsRequest"/>
+            <output message="typens:betterblogPostAttributeOptionsResponse"/>
+        </operation>
+        <operation name="betterblogPostAttributeTypes">
+            <documentation>Get list of possible post attribute types</documentation>
+            <input message="typens:betterblogPostAttributeTypesRequest"/>
+            <output message="typens:betterblogPostAttributeTypesResponse"/>
+        </operation>
+        <operation name="betterblogPostAttributeCreate">
+            <documentation>Create new post attribute</documentation>
+            <input message="typens:betterblogPostAttributeCreateRequest"/>
+            <output message="typens:betterblogPostAttributeCreateResponse"/>
+        </operation>
+        <operation name="betterblogPostAttributeRemove">
+            <documentation>Delete post attribute</documentation>
+            <input message="typens:betterblogPostAttributeRemoveRequest"/>
+            <output message="typens:betterblogPostAttributeRemoveResponse"/>
+        </operation>
+        <operation name="betterblogPostAttributeInfo">
+            <documentation>Get full information about post attribute with list of options</documentation>
+            <input message="typens:betterblogPostAttributeInfoRequest"/>
+            <output message="typens:betterblogPostAttributeInfoResponse"/>
+        </operation>
+        <operation name="betterblogPostAttributeUpdate">
+            <documentation>Update post attribute</documentation>
+            <input message="typens:betterblogPostAttributeUpdateRequest"/>
+            <output message="typens:betterblogPostAttributeUpdateResponse"/>
+        </operation>
+        <operation name="betterblogPostAttributeAddOption">
+            <documentation>Add option to post attribute</documentation>
+            <input message="typens:betterblogPostAttributeAddOptionRequest"/>
+            <output message="typens:betterblogPostAttributeAddOptionResponse"/>
+        </operation>
+        <operation name="betterblogPostAttributeRemoveOption">
+            <documentation>Remove option from post attribute</documentation>
+            <input message="typens:betterblogPostAttributeRemoveOptionRequest"/>
+            <output message="typens:betterblogPostAttributeRemoveOptionResponse"/>
+        </operation>
+    </portType>
+    <binding name="{{var wsdl.handler}}Binding" type="typens:{{var wsdl.handler}}PortType">
+        <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http" />
+        <operation name="betterblogPostList">
+            <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+            <input>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+        <operation name="betterblogPostInfo">
+            <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+            <input>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+        <operation name="betterblogPostAdd">
+            <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+            <input>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+        <operation name="betterblogPostUpdate">
+            <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+            <input>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+        <operation name="betterblogPostRemove">
+            <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+            <input>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+        <operation name="betterblogPostAssignCategory">
+            <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+            <input>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+        <operation name="betterblogPostUnassignCategory">
+            <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+            <input>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+        <operation name="betterblogPostAssignTag">
+            <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+            <input>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+        <operation name="betterblogPostUnassignTag">
+            <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+            <input>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+            <operation name="betterblogCategoryList">
+            <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+            <input>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+        <operation name="betterblogCategoryInfo">
+            <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+            <input>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+        <operation name="betterblogCategoryAdd">
+            <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+            <input>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+        <operation name="betterblogCategoryUpdate">
+            <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+            <input>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+        <operation name="betterblogCategoryRemove">
+            <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+            <input>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+        <operation name="betterblogCategoryMove">
+            <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+            <input>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+        <operation name="betterblogCategoryAssignPost">
+            <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+            <input>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+        <operation name="betterblogCategoryUnassignPost">
+            <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+            <input>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+            <operation name="betterblogTagList">
+            <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+            <input>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+        <operation name="betterblogTagInfo">
+            <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+            <input>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+        <operation name="betterblogTagAdd">
+            <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+            <input>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+        <operation name="betterblogTagUpdate">
+            <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+            <input>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+        <operation name="betterblogTagRemove">
+            <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+            <input>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+        <operation name="betterblogTagAssignPost">
+            <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+            <input>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+        <operation name="betterblogTagUnassignPost">
+            <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+            <input>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+            <operation name="betterblogPostCommentList">
+            <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+            <input>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+        <operation name="betterblogPostCommentUpdateStatus">
+            <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+            <input>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+        <operation name="betterblogPostListOfAdditionalAttributes">
+            <soap:operation soapAction="urn:{{var wsdl.handler}}Action"/>
+            <input>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="betterblogPostAttributeCurrentStore">
+            <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+            <input>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+        <operation name="betterblogPostAttributeList">
+            <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+            <input>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+        <operation name="betterblogPostAttributeOptions">
+            <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+            <input>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+        <operation name="betterblogPostAttributeTypes">
+            <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+            <input>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+        <operation name="betterblogPostAttributeCreate">
+            <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+            <input>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+        <operation name="betterblogPostAttributeUpdate">
+            <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+            <input>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+        <operation name="betterblogPostAttributeRemove">
+            <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+            <input>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+        <operation name="betterblogPostAttributeInfo">
+            <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+            <input>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+        <operation name="betterblogPostAttributeAddOption">
+            <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+            <input>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+        <operation name="betterblogPostAttributeRemoveOption">
+            <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+            <input>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+    </binding>
+    <service name="{{var wsdl.name}}Service">
+        <port name="{{var wsdl.handler}}Port" binding="typens:{{var wsdl.handler}}Binding">
+            <soap:address location="{{var wsdl.url}}" />
+        </port>
+    </service>
+</definitions>

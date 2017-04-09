@@ -1,0 +1,45 @@
+<?php
+/**
+ * Mageplaza_BetterBlog extension
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ *
+ * @category       Mageplaza
+ * @package        Mageplaza_BetterBlog
+ * @copyright      Copyright (c) 2015
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+/**
+ * Category list template
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_BetterBlog
+ * @author      Sam
+ */
+?>
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<?php $_categories = $this->getCategories(); ?>
+<div class="block">
+    <div class="block-title tag-title">
+        <strong><span><?php echo Mage::helper('mageplaza_betterblog')->__('Categories') ?></span></strong>
+    </div>
+    <?php if ($_categories->getSize() > 0) : ?>
+        <div class="block-content category-list-container">
+            <ul>
+                <?php foreach ($_categories as $_category) : ?>
+                    <li>
+                        <a href="<?php echo $_category->getCategoryUrl() ?>">
+                            <?php echo $_category->getName(); ?>
+                        </a>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    <?php else : ?>
+        <?php echo Mage::helper('mageplaza_betterblog')->__('There are no categories at this moment'); ?>
+    <?php endif; ?>

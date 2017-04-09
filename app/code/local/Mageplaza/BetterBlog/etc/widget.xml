@@ -1,0 +1,182 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Mageplaza_BetterBlog extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category       Mageplaza
+ * @package        Mageplaza_BetterBlog
+ * @copyright      Copyright (c) 2015
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+-->
+<widgets>
+    <betterblog_post_view type="mageplaza_betterblog/post_widget_view" translate="name description" module="mageplaza_betterblog">
+        <name>Post view</name>
+        <description>Post view widget</description>
+        <is_email_compatible>0</is_email_compatible>
+        <parameters>
+            <post_id type="complex" translate="label">
+                <visible>1</visible>
+                <required>1</required>
+                <label>Post</label>
+                <type>label</type>
+                <helper_block>
+                    <type>mageplaza_betterblog/adminhtml_post_widget_chooser</type>
+                    <data>
+                        <button translate="open">
+                            <open>Select Post</open>
+                        </button>
+                    </data>
+                </helper_block>
+                <sort_order>120</sort_order>
+            </post_id>
+        </parameters>
+    </betterblog_post_view>
+    <betterblog_post_link type="mageplaza_betterblog/post_widget_link" translate="name description" module="mageplaza_betterblog">
+        <name>Post link</name>
+        <description>Post link widget</description>
+        <is_email_compatible>0</is_email_compatible>
+        <parameters>
+            <post_id type="complex" translate="label">
+                <visible>1</visible>
+                <required>1</required>
+                <label>Post</label>
+                <type>label</type>
+                <helper_block>
+                    <type>mageplaza_betterblog/adminhtml_post_widget_chooser</type>
+                    <data>
+                        <button translate="open">
+                            <open>Select Post</open>
+                        </button>
+                    </data>
+                </helper_block>
+                <sort_order>130</sort_order>
+            </post_id>
+        </parameters>
+    </betterblog_post_link>
+    <betterblog_category_view type="mageplaza_betterblog/category_widget_view" translate="name description" module="mageplaza_betterblog">
+        <name>Category view</name>
+        <description>Category view widget</description>
+        <is_email_compatible>0</is_email_compatible>
+        <parameters>
+            <category_id type="complex" translate="label">
+                <visible>1</visible>
+                <required>1</required>
+                <label>Category</label>
+                <type>label</type>
+                <helper_block>
+                    <type>mageplaza_betterblog/adminhtml_category_widget_chooser</type>
+                    <data>
+                        <button translate="open">
+                            <open>Select Category</open>
+                        </button>
+                    </data>
+                </helper_block>
+                <sort_order>120</sort_order>
+            </category_id>
+        </parameters>
+    </betterblog_category_view>
+    <betterblog_category_link type="mageplaza_betterblog/category_widget_link" translate="name description" module="mageplaza_betterblog">
+        <name>Category link</name>
+        <description>Category link widget</description>
+        <is_email_compatible>0</is_email_compatible>
+        <parameters>
+            <category_id type="complex" translate="label">
+                <visible>1</visible>
+                <required>1</required>
+                <label>Category</label>
+                <type>label</type>
+                <helper_block>
+                    <type>mageplaza_betterblog/adminhtml_category_widget_chooser</type>
+                    <data>
+                        <button translate="open">
+                            <open>Select Category</open>
+                        </button>
+                    </data>
+                </helper_block>
+                <sort_order>130</sort_order>
+            </category_id>
+        </parameters>
+    </betterblog_category_link>
+    <betterblog_tag_view type="mageplaza_betterblog/tag_widget_view" translate="name description" module="mageplaza_betterblog">
+        <name>Tag view</name>
+        <description>Tag view widget</description>
+        <is_email_compatible>0</is_email_compatible>
+        <parameters>
+            <tag_id type="complex" translate="label">
+                <visible>1</visible>
+                <required>1</required>
+                <label>Tag</label>
+                <type>label</type>
+                <helper_block>
+                    <type>mageplaza_betterblog/adminhtml_tag_widget_chooser</type>
+                    <data>
+                        <button translate="open">
+                            <open>Select Tag</open>
+                        </button>
+                    </data>
+                </helper_block>
+                <sort_order>120</sort_order>
+            </tag_id>
+        </parameters>
+    </betterblog_tag_view>
+    <betterblog_tag_link type="mageplaza_betterblog/tag_widget_link" translate="name description" module="mageplaza_betterblog">
+        <name>Tag link</name>
+        <description>Tag link widget</description>
+        <is_email_compatible>0</is_email_compatible>
+        <parameters>
+            <tag_id type="complex" translate="label">
+                <visible>1</visible>
+                <required>1</required>
+                <label>Tag</label>
+                <type>label</type>
+                <helper_block>
+                    <type>mageplaza_betterblog/adminhtml_tag_widget_chooser</type>
+                    <data>
+                        <button translate="open">
+                            <open>Select Tag</open>
+                        </button>
+                    </data>
+                </helper_block>
+                <sort_order>130</sort_order>
+            </tag_id>
+        </parameters>
+    </betterblog_tag_link>
+    <betterblog_category_subtree type="mageplaza_betterblog/category_widget_subtree" translate="name description" module="mageplaza_betterblog">
+        <name>Category subtree</name>
+        <description>Category subtree widget</description>
+        <is_email_compatible>0</is_email_compatible>
+        <parameters>
+            <category_id type="complex" translate="label">
+                <visible>1</visible>
+                <required>1</required>
+                <label>Category</label>
+                <type>label</type>
+                <helper_block>
+                    <type>mageplaza_betterblog/adminhtml_category_widget_chooser</type>
+                    <data>
+                        <button translate="open">
+                            <open>Select Category</open>
+                        </button>
+                    </data>
+                </helper_block>
+                <sort_order>10</sort_order>
+            </category_id>
+            <recursion type="complex" translate="label">
+                <visible>1</visible>
+                <required>1</required>
+                <value>0</value>
+                <label>Levels to show (0 for all)</label>
+                <type>text</type>
+                <sort_order>20</sort_order>
+            </recursion>
+        </parameters>
+    </betterblog_category_subtree>
+</widgets>
