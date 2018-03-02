@@ -2,6 +2,9 @@
 
 **Magento Blog extension** for your e-commerce store without adding 3rd-party framework such as Wordpress. Magento blog extension allows you manage categories, posts, comments on Magento back-end. The system will update you when there is a new comment submit. This is a great solution for building relevant SEO-friendly text links, and serves as assistance in building sales strategy.
 
+## Download
+- [Latest version](https://github.com/mageplaza/magento-blog/archive/master.zip)
+
 ## Responsive design
 
 Mobile-friendly design will make allow you customers to read your blog posts with maximum comfort on tablets and smartphones. Using the off-canvas menu, they will be able to see widgets and interact with the blog search. Tested on Madison, Ultimo, Porto theme.
